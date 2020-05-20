@@ -177,7 +177,7 @@
         <Grid Grid.Row="1"
               Grid.Column="1">
             <TextBlock Style="{DynamicResource HeadLineTextBlock}"
-                       Text="Окно администратора Окно администратора Окно Окно"/>
+                       Text="Окно администратора"/>
         </Grid>
     </Grid>
 </Window>
