@@ -18,13 +18,37 @@
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True">
+    <Window.Resources>
+        <Storyboard x:Key="OpenMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)"
+                                           Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="75"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="250"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="CloseMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)"
+                                           Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="250"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="75"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btnOpenMenu">
+            <BeginStoryboard Storyboard="{StaticResource OpenMenu}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btnCloseMenu">
+            <BeginStoryboard Storyboard="{StaticResource CloseMenu}"/>
+        </EventTrigger>
+    </Window.Triggers>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="75"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
@@ -39,89 +63,121 @@
                 </Button>
                 <Button Style="{DynamicResource CloseMinimizedButton}">
                     <materialDesign:PackIcon Kind="Close"/>
-                </Button> 
+                </Button>
             </UniformGrid>
         </Grid>
 
-        <Grid Grid.Row="1">
+        <Grid x:Name="GridMenu"
+              Grid.Row="1"
+              Width="75"
+              Background="{DynamicResource Dark}">
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="150"/>
                 <RowDefinition />
             </Grid.RowDefinitions>
 
-            <Rectangle Fill="{DynamicResource Gray}"/>
+            <Grid RenderTransformOrigin="0.5, 0.5">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Rectangle Fill="{DynamicResource Gray}"/>
 
-            <Button Style="{DynamicResource MenuButton}">
-                <materialDesign:PackIcon Kind="Menu"
-                                         Height="35"
-                                         Width="35"/>
-            </Button>
-
-            <Grid Grid.Row="1"
-                  Background="{DynamicResource Dark}">
-                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                    <ListViewItem>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="75"/>
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-                            <materialDesign:PackIcon Kind="User"
-                                                     Height="25"
-                                                     Width="25"
-                                                     Margin="10"/>
-                            <TextBlock Style="{DynamicResource MainTextBlock}"
-                                       Text="Пользователи"
-                                       Grid.Column="1"/>
-                        </Grid>
-                    </ListViewItem>
-                    <ListViewItem>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="75"/>
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-                            <materialDesign:PackIcon Kind="People"
-                                                     Height="25"
-                                                     Width="25"
-                                                     Margin="10"/>
-                            <TextBlock Style="{DynamicResource MainTextBlock}"
-                                       Text="Пользователи"
-                                       Grid.Column="1"/>
-                        </Grid>
-                    </ListViewItem>
-                    <ListViewItem>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="75"/>
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-                            <materialDesign:PackIcon Kind="Ticket"
-                                                     Height="25"
-                                                     Width="25"
-                                                     Margin="10"/>
-                            <TextBlock Style="{DynamicResource MainTextBlock}"
-                                       Text="Пользователи"
-                                       Grid.Column="1"/>
-                        </Grid>
-                    </ListViewItem>
-                    <ListViewItem>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="75"/>
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-                            <materialDesign:PackIcon Kind="TickBoxMultipleOutline"
-                                                     Height="25"
-                                                     Width="25"
-                                                     Margin="10"/>
-                            <TextBlock Style="{DynamicResource MainTextBlock}"
-                                       Text="Пользователи"
-                                       Grid.Column="1"/>
-                        </Grid>
-                    </ListViewItem>
-                </ListView>
+                <Button x:Name="btnOpenMenu" 
+                        Style="{DynamicResource MenuButton}"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Right"
+                        Click="ButtonOpenMenu_Click">
+                    <materialDesign:PackIcon Kind="Menu"
+                                             Height="35"
+                                             Width="35"/>
+                </Button>
+                <Button x:Name="btnCloseMenu" 
+                        Style="{DynamicResource MenuButton}"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Right"
+                        Visibility="Collapsed"
+                        Click="ButtonCloseMenu_Click">
+                    <materialDesign:PackIcon Kind="ArrowLeft"
+                                             Height="35"
+                                             Width="35"/>
+                </Button>
             </Grid>
+
+            <ListView Grid.Row="1"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListViewItem>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon Kind="User"
+                                                     Height="25"
+                                                     Width="25"
+                                                     Margin="10"/>
+                        <TextBlock Style="{DynamicResource MainTextBlock}"
+                                       Text="Пользователи"
+                                       Grid.Column="1"/>
+                    </Grid>
+                </ListViewItem>
+                <ListViewItem>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon Kind="People"
+                                                     Height="25"
+                                                     Width="25"
+                                                     Margin="10"/>
+                        <TextBlock Style="{DynamicResource MainTextBlock}"
+                                       Text="Сотрудники"
+                                       Grid.Column="1"/>
+                    </Grid>
+                </ListViewItem>
+                <ListViewItem>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon Kind="Ticket"
+                                                     Height="25"
+                                                     Width="25"
+                                                     Margin="10"/>
+                        <TextBlock Style="{DynamicResource MainTextBlock}"
+                                       Text="Билеты"
+                                       Grid.Column="1"/>
+                    </Grid>
+                </ListViewItem>
+                <ListViewItem>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon Kind="TickBoxMultipleOutline"
+                                                     Height="25"
+                                                     Width="25"
+                                                     Margin="10"/>
+                        <TextBlock Style="{DynamicResource MainTextBlock}"
+                                       Text="Заказы"
+                                       Grid.Column="1"/>
+                    </Grid>
+                </ListViewItem>
+            </ListView>
+        </Grid>
+
+        <Grid Grid.Row="1"
+              Grid.Column="1">
+            <TextBlock Style="{DynamicResource HeadLineTextBlock}"
+                       Text="Окно администратора Окно администратора Окно Окно"/>
         </Grid>
     </Grid>
 </Window>
