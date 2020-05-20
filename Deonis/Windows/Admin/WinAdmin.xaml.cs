@@ -10,24 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TestDesign
+namespace Deonis.Windows.Admin
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для WinAdmin.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class WinAdmin : Window
     {
-        public MainWindow()
+        public WinAdmin()
         {
             InitializeComponent();
-        }
-
-        private void DoubleAnimation_Completed(object sender, EventArgs e)
-        {
-
         }
     }
 }
