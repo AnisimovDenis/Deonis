@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:Deonis"
              StartupUri="Windows/Autotification/WinAutorization.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resource/MainDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
