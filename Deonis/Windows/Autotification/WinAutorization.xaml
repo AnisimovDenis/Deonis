@@ -36,8 +36,19 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition />
             </Grid.RowDefinitions>
-            
-            
+
+            <UniformGrid VerticalAlignment="Top"
+                         HorizontalAlignment="Right"
+                         Margin="15 15"
+                         Rows="1"
+                         Columns="2">
+                <Button Style="{DynamicResource CloseMinimizedButton}">
+                    <materialDesign:PackIcon Kind="WindowMinimize"/>
+                </Button>
+                <Button Style="{DynamicResource CloseMinimizedButton}">
+                    <materialDesign:PackIcon Kind="Close"/>
+                </Button>
+            </UniformGrid>
             
             <TextBlock Style="{DynamicResource HeadLineTextBlock}"
                        Text="Авторизация"
