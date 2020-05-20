@@ -24,5 +24,10 @@ namespace TestDesign
         {
             InitializeComponent();
         }
+
+        private void DoubleAnimation_Completed(object sender, EventArgs e)
+        {
+
+        }
     }
 }
