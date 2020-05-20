@@ -22,6 +22,8 @@ namespace Deonis.Windows.Autotification
         public WinAutorization()
         {
             InitializeComponent();
+
+            Rect.MouseDown += delegate { this.DragMove(); };
         }
     }
 }
