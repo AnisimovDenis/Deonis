@@ -16,6 +16,6 @@ namespace Deonis_lib.Entities
 
         public string TypeOfTransport { get; set; }
 
-        public string PricePerTrip { get; set; }
+        public decimal PricePerTrip { get; set; }
     }
 }
