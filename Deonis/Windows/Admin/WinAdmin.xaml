@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Deonis.Windows.Admin"
         mc:Ignorable="d"
-        Title="Авторизация" Height="650" Width="1100"
+        Title="Авторизация" Height="750" Width="1100"
+        xmlns:data="clr-namespace:"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -23,14 +24,14 @@
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)"
                                            Storyboard.TargetName="GridMenu">
                 <EasingDoubleKeyFrame KeyTime="0" Value="75"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="250"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="220"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="CloseMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)"
                                            Storyboard.TargetName="GridMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="250"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="75"/>
+                <EasingDoubleKeyFrame KeyTime="0" Value="220"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="75"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
@@ -48,11 +49,12 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="75"/>
+            <ColumnDefinition Width="145"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.ColumnSpan="2">
+        <Grid Grid.ColumnSpan="3">
             <Rectangle Fill="{DynamicResource Light}"/>
             <UniformGrid VerticalAlignment="Center"
                          HorizontalAlignment="Right"
@@ -67,9 +69,52 @@
             </UniformGrid>
         </Grid>
 
+        <Grid Grid.Row="1"
+              Grid.Column="1"
+              Grid.ColumnSpan="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Пользователи системы"
+                           Style="{DynamicResource HeadLineTextBlock}"
+                           Margin="0 20"/>
+
+                <Grid Grid.Row="1">
+                    <DataGrid Style="{DynamicResource DataGrid}"
+                              AutoGenerateColumns="False"
+                              IsReadOnly="True"
+                              CanUserReorderColumns="False"
+                              ItemsSource="{Binding }">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Логин"
+                                                Width="100"
+                                                MinWidth="150"/>
+                            <DataGridTextColumn Header="Пароль"
+                                                Width="100"
+                                                MinWidth="150"/>
+                            <DataGridTextColumn Header="Роль"
+                                                Width="*"
+                                                MinWidth="250"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <TextBox Style="{DynamicResource Search}"
+                             VerticalAlignment="Top"
+                             HorizontalAlignment="Right"
+                             materialDesign:HintAssist.Hint="Поиск по логину"/>
+                </Grid>
+            </Grid>
+        </Grid>
+
         <Grid x:Name="GridMenu"
               Grid.Row="1"
+              Grid.ColumnSpan="2"
               Width="75"
+              HorizontalAlignment="Left"
               Background="{DynamicResource Dark}">
 
             <Grid.RowDefinitions>
@@ -87,6 +132,20 @@
                     </TransformGroup>
                 </Grid.RenderTransform>
                 <Rectangle Fill="{DynamicResource Gray}"/>
+
+                <Image x:Name="imgLogo"
+                       Source="/Deonis;component/Resource/icon.png"
+                       Width="50"
+                       Height="50" Margin="0 50 0 0">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform />
+                            <SkewTransform />
+                            <RotateTransform />
+                            <TranslateTransform />
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
 
                 <Button x:Name="btnOpenMenu" 
                         Style="{DynamicResource MenuButton}"
@@ -112,72 +171,74 @@
             <ListView Grid.Row="1"
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ListViewItem>
-                    <Grid>
+                    <Grid Margin="10"
+                          Width="200">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition Width="50"/>
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <materialDesign:PackIcon Kind="User"
-                                                     Height="25"
-                                                     Width="25"
-                                                     Margin="10"/>
+                                                 Height="25"
+                                                 Width="25"
+                                                 Margin="7"/>
                         <TextBlock Style="{DynamicResource MainTextBlock}"
-                                       Text="Пользователи"
-                                       Grid.Column="1"/>
+                                   Text="Пользователи"
+                                   Grid.Column="1"
+                                   HorizontalAlignment="Left"/>
                     </Grid>
                 </ListViewItem>
                 <ListViewItem>
-                    <Grid>
+                    <Grid Margin="10"
+                          Width="200">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition Width="50"/>
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <materialDesign:PackIcon Kind="People"
-                                                     Height="25"
-                                                     Width="25"
-                                                     Margin="10"/>
+                                                 Height="25"
+                                                 Width="25"
+                                                 Margin="7"/>
                         <TextBlock Style="{DynamicResource MainTextBlock}"
-                                       Text="Сотрудники"
-                                       Grid.Column="1"/>
+                                   Text="Сотрудники"
+                                   Grid.Column="1"
+                                   HorizontalAlignment="Left"/>
                     </Grid>
                 </ListViewItem>
                 <ListViewItem>
-                    <Grid>
+                    <Grid Margin="10"
+                          Width="200">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition Width="50"/>
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <materialDesign:PackIcon Kind="Ticket"
-                                                     Height="25"
-                                                     Width="25"
-                                                     Margin="10"/>
+                                                 Height="25"
+                                                 Width="25"
+                                                 Margin="7"/>
                         <TextBlock Style="{DynamicResource MainTextBlock}"
-                                       Text="Билеты"
-                                       Grid.Column="1"/>
+                                   Text="Билеты"
+                                   Grid.Column="1"
+                                   HorizontalAlignment="Left"/>
                     </Grid>
                 </ListViewItem>
                 <ListViewItem>
-                    <Grid>
+                    <Grid Margin="10"
+                          Width="200">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition Width="50"/>
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <materialDesign:PackIcon Kind="TickBoxMultipleOutline"
-                                                     Height="25"
-                                                     Width="25"
-                                                     Margin="10"/>
+                                                 Height="25"
+                                                 Width="25"
+                                                 Margin="7"/>
                         <TextBlock Style="{DynamicResource MainTextBlock}"
-                                       Text="Заказы"
-                                       Grid.Column="1"/>
+                                   Text="Заказы"
+                                   Grid.Column="1"
+                                   HorizontalAlignment="Left"/>
                     </Grid>
                 </ListViewItem>
             </ListView>
-        </Grid>
-
-        <Grid Grid.Row="1"
-              Grid.Column="1">
-            <TextBlock Style="{DynamicResource HeadLineTextBlock}"
-                       Text="Окно администратора"/>
         </Grid>
     </Grid>
 </Window>
