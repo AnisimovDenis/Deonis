@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Deonis_lib.TestData
 {
+    /// <summary> Тестовые данные </summary>
     public static class Data
     {
         public static List<Employee> employees { get; } = new List<Employee>()

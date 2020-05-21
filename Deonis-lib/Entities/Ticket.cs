@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Deonis_lib.Entities
+﻿namespace Deonis_lib.Entities
 {
+    /// <summary> Билет </summary>
     public class Ticket
     {
         public string Name { get; set; }
