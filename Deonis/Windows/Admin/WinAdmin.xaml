@@ -104,7 +104,8 @@
 
                     <TextBox Style="{DynamicResource Search}"
                              VerticalAlignment="Top"
-                             HorizontalAlignment="Right"/>
+                             HorizontalAlignment="Right"
+                             materialDesign:HintAssist.Hint="Поиск по логину"/>
                 </Grid>
             </Grid>
         </Grid>
