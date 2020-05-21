@@ -17,20 +17,19 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
-        AllowsTransparency="True"
-        WindowState="Maximized">
+        AllowsTransparency="True">
     <Window.Resources>
         <Storyboard x:Key="OpenMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)"
                                            Storyboard.TargetName="GridMenu">
                 <EasingDoubleKeyFrame KeyTime="0" Value="75"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="250"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="220"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="CloseMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)"
                                            Storyboard.TargetName="GridMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="250"/>
+                <EasingDoubleKeyFrame KeyTime="0" Value="220"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="75"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
