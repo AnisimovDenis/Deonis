@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Deonis.Windows.Admin"
         mc:Ignorable="d"
-        Title="Авторизация" Height="650" Width="1100"
+        Title="Авторизация" Height="750" Width="1100"
+        xmlns:data="clr-namespace:"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -48,8 +49,8 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="125"/>
+            <ColumnDefinition Width="75"/>
+            <ColumnDefinition Width="145"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
@@ -66,6 +67,46 @@
                     <materialDesign:PackIcon Kind="Close"/>
                 </Button>
             </UniformGrid>
+        </Grid>
+
+        <Grid Grid.Row="1"
+              Grid.Column="1"
+              Grid.ColumnSpan="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Пользователи системы"
+                           Style="{DynamicResource HeadLineTextBlock}"
+                           Margin="0 20"/>
+
+                <Grid Grid.Row="1">
+                    <DataGrid Style="{DynamicResource DataGrid}"
+                              AutoGenerateColumns="False"
+                              IsReadOnly="True"
+                              CanUserReorderColumns="False"
+                              ItemsSource="{Binding }">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Логин"
+                                                Width="100"
+                                                MinWidth="150"/>
+                            <DataGridTextColumn Header="Пароль"
+                                                Width="100"
+                                                MinWidth="150"/>
+                            <DataGridTextColumn Header="Роль"
+                                                Width="*"
+                                                MinWidth="250"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <TextBox Style="{DynamicResource Search}"
+                             VerticalAlignment="Top"
+                             HorizontalAlignment="Right"/>
+                </Grid>
+            </Grid>
         </Grid>
 
         <Grid x:Name="GridMenu"
@@ -197,13 +238,6 @@
                     </Grid>
                 </ListViewItem>
             </ListView>
-        </Grid>
-
-        <Grid Grid.Row="1"
-              Grid.Column="1"
-              Grid.ColumnSpan="2">
-            <TextBlock Style="{DynamicResource HeadLineTextBlock}"
-                       Text="Окно администратора"/>
         </Grid>
     </Grid>
 </Window>
