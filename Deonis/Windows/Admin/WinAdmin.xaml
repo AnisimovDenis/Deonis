@@ -50,10 +50,11 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="125"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.ColumnSpan="2">
+        <Grid Grid.ColumnSpan="3">
             <Rectangle Fill="{DynamicResource Light}"/>
             <UniformGrid VerticalAlignment="Center"
                          HorizontalAlignment="Right"
@@ -70,7 +71,9 @@
 
         <Grid x:Name="GridMenu"
               Grid.Row="1"
+              Grid.ColumnSpan="2"
               Width="75"
+              HorizontalAlignment="Left"
               Background="{DynamicResource Dark}">
 
             <Grid.RowDefinitions>
@@ -184,7 +187,8 @@
         </Grid>
 
         <Grid Grid.Row="1"
-              Grid.Column="1">
+              Grid.Column="1"
+              Grid.ColumnSpan="2">
             <TextBlock Style="{DynamicResource HeadLineTextBlock}"
                        Text="Окно администратора"/>
         </Grid>
