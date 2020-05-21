@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Deonis_lib.TestData
 {
-    public class Data
+    public static class Data
     {
-        public List<Employee> employees { get; } = new List<Employee>()
+        public static List<Employee> employees { get; } = new List<Employee>()
         {
             new Employee { LastName = "User1", FirstName = "User1", MiddleName = "User1", 
                 Login = "User1", Email = "user1@mail.ru", PhoneNubmer = "+7(777)777-77-77", Address = "User1 address" },
@@ -22,7 +22,7 @@ namespace Deonis_lib.TestData
                 Login = "User3", Email = "user3@mail.ru", PhoneNubmer = "+7(777)777-77-75", Address = "User3 address" },
         };
 
-        public List<Order> orders { get; } = new List<Order>()
+        public static List<Order> orders { get; } = new List<Order>()
         {
             new Order { Article = "art1", Employee = "User1", NumberOfTrips = 1, Price = 100, Ticket = "1" },
 
@@ -32,7 +32,7 @@ namespace Deonis_lib.TestData
 
         };
 
-        public List<Ticket> tickets { get; } = new List<Ticket>()
+        public static List<Ticket> tickets { get; } = new List<Ticket>()
         {
             new Ticket { Name = "Name1", Article = "card1", TypeOfTicket = "default", TypeOfTransport = "подзменый", PricePerTrip = 100 },
 
@@ -41,7 +41,7 @@ namespace Deonis_lib.TestData
             new Ticket { Name = "Name3", Article = "card3", TypeOfTicket = "default", TypeOfTransport = "подзменый", PricePerTrip = 300 }
         };
 
-        public List<User> users { get; } = new List<User>()
+        public static List<User> users { get; } = new List<User>()
         {
             new User { Login = "User1", Password = "pass1", Role = "User1"},
 
