@@ -91,6 +91,20 @@
                 </Grid.RenderTransform>
                 <Rectangle Fill="{DynamicResource Gray}"/>
 
+                <Image x:Name="imgLogo"
+                       Source="/Deonis;component/Resource/icon.png"
+                       Width="50"
+                       Height="50" Margin="0 50 0 0">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform />
+                            <SkewTransform />
+                            <RotateTransform />
+                            <TranslateTransform />
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+
                 <Button x:Name="btnOpenMenu" 
                         Style="{DynamicResource MenuButton}"
                         VerticalAlignment="Top"
