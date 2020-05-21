@@ -52,7 +52,7 @@
             
             <TextBlock Style="{DynamicResource HeadLineTextBlock}"
                        Text="Авторизация"
-                       Margin="0 25 0 0"/>
+                       Margin="0 45 0 0"/>
             <Image Source="/Deonis;component/Resource/icon.png"
                    Grid.Row="1"/>
 

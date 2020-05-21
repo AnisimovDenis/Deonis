@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Deonis.Windows.Admin"
         mc:Ignorable="d"
-        Title="Авторизация" Height="750" Width="1100"
-        xmlns:data="clr-namespace:"
+        Title="Авторизация" Height="750" Width="1250"
+        xmlns:data="clr-namespace:Deonis_lib.TestData;assembly=Deonis-lib"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -24,13 +24,13 @@
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)"
                                            Storyboard.TargetName="GridMenu">
                 <EasingDoubleKeyFrame KeyTime="0" Value="75"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="220"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="195"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="CloseMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)"
                                            Storyboard.TargetName="GridMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="220"/>
+                <EasingDoubleKeyFrame KeyTime="0" Value="195"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="75"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
@@ -88,17 +88,20 @@
                               AutoGenerateColumns="False"
                               IsReadOnly="True"
                               CanUserReorderColumns="False"
-                              ItemsSource="{Binding }">
+                              ItemsSource="{x:Static data:Data.users}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Логин"
                                                 Width="100"
-                                                MinWidth="150"/>
+                                                MinWidth="150"
+                                                Binding="{Binding Login}"/>
                             <DataGridTextColumn Header="Пароль"
                                                 Width="100"
-                                                MinWidth="150"/>
+                                                MinWidth="150"
+                                                Binding="{Binding Password}"/>
                             <DataGridTextColumn Header="Роль"
                                                 Width="*"
-                                                MinWidth="250"/>
+                                                MinWidth="250"
+                                                Binding="{Binding Role}"/>
                         </DataGrid.Columns>
                     </DataGrid>
 
