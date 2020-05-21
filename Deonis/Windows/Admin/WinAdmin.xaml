@@ -17,20 +17,21 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
-        AllowsTransparency="True">
+        AllowsTransparency="True"
+        WindowState="Maximized">
     <Window.Resources>
         <Storyboard x:Key="OpenMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)"
                                            Storyboard.TargetName="GridMenu">
                 <EasingDoubleKeyFrame KeyTime="0" Value="75"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="250"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="250"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="CloseMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)"
                                            Storyboard.TargetName="GridMenu">
                 <EasingDoubleKeyFrame KeyTime="0" Value="250"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="75"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="75"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
@@ -112,63 +113,71 @@
             <ListView Grid.Row="1"
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ListViewItem>
-                    <Grid>
+                    <Grid Margin="10"
+                          Width="200">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition Width="50"/>
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <materialDesign:PackIcon Kind="User"
-                                                     Height="25"
-                                                     Width="25"
-                                                     Margin="10"/>
+                                                 Height="25"
+                                                 Width="25"
+                                                 Margin="7"/>
                         <TextBlock Style="{DynamicResource MainTextBlock}"
-                                       Text="Пользователи"
-                                       Grid.Column="1"/>
+                                   Text="Пользователи"
+                                   Grid.Column="1"
+                                   HorizontalAlignment="Left"/>
                     </Grid>
                 </ListViewItem>
                 <ListViewItem>
-                    <Grid>
+                    <Grid Margin="10"
+                          Width="200">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition Width="50"/>
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <materialDesign:PackIcon Kind="People"
-                                                     Height="25"
-                                                     Width="25"
-                                                     Margin="10"/>
+                                                 Height="25"
+                                                 Width="25"
+                                                 Margin="7"/>
                         <TextBlock Style="{DynamicResource MainTextBlock}"
-                                       Text="Сотрудники"
-                                       Grid.Column="1"/>
+                                   Text="Сотрудники"
+                                   Grid.Column="1"
+                                   HorizontalAlignment="Left"/>
                     </Grid>
                 </ListViewItem>
                 <ListViewItem>
-                    <Grid>
+                    <Grid Margin="10"
+                          Width="200">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition Width="50"/>
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <materialDesign:PackIcon Kind="Ticket"
-                                                     Height="25"
-                                                     Width="25"
-                                                     Margin="10"/>
+                                                 Height="25"
+                                                 Width="25"
+                                                 Margin="7"/>
                         <TextBlock Style="{DynamicResource MainTextBlock}"
-                                       Text="Билеты"
-                                       Grid.Column="1"/>
+                                   Text="Билеты"
+                                   Grid.Column="1"
+                                   HorizontalAlignment="Left"/>
                     </Grid>
                 </ListViewItem>
                 <ListViewItem>
-                    <Grid>
+                    <Grid Margin="10"
+                          Width="200">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition Width="50"/>
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <materialDesign:PackIcon Kind="TickBoxMultipleOutline"
-                                                     Height="25"
-                                                     Width="25"
-                                                     Margin="10"/>
+                                                 Height="25"
+                                                 Width="25"
+                                                 Margin="7"/>
                         <TextBlock Style="{DynamicResource MainTextBlock}"
-                                       Text="Заказы"
-                                       Grid.Column="1"/>
+                                   Text="Заказы"
+                                   Grid.Column="1"
+                                   HorizontalAlignment="Left"/>
                     </Grid>
                 </ListViewItem>
             </ListView>
