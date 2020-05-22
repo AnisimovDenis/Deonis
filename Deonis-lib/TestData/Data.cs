@@ -20,7 +20,7 @@ namespace Deonis_lib.TestData
                 Login = "User2", Email = "user2@mail.ru", PhoneNubmer = "+7(777)777-77-76", Address = "User2 address" },
 
             new Employee { LastName = "User3", FirstName = "User3", MiddleName = "User3",
-                Login = "User3", Email = "user3@mail.ru", PhoneNubmer = "+7(777)777-77-75", Address = "User3 address" },
+                Login = "User3", Email = "user3@mail.ru", PhoneNubmer = "+7(777)777-77-75", Address = "User3 address" }
         };
 
         public static List<Order> orders { get; } = new List<Order>()
@@ -29,8 +29,7 @@ namespace Deonis_lib.TestData
 
             new Order { Article = "art2", Employee = "User2", NumberOfTrips = 2, Price = 200, Ticket = "2" },
 
-            new Order { Article = "art3", Employee = "User3", NumberOfTrips = 3, Price = 300, Ticket = "3" },
-
+            new Order { Article = "art3", Employee = "User3", NumberOfTrips = 3, Price = 300, Ticket = "3" }
         };
 
         public static List<Ticket> tickets { get; } = new List<Ticket>()
@@ -48,8 +47,7 @@ namespace Deonis_lib.TestData
 
             new User { Login = "User2", Password = "pass2", Role = "User2"},
 
-            new User { Login = "User3", Password = "pass3", Role = "User3"},
+            new User { Login = "User3", Password = "pass3", Role = "User3"}
         };
-
     }
 }

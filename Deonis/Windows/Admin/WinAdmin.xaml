@@ -59,7 +59,6 @@
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btnOpenButtonMenu">
             <BeginStoryboard Storyboard="{StaticResource OpenButtonMenu}"/>
         </EventTrigger>
-
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btnCloseButtonMenu">
             <BeginStoryboard Storyboard="{StaticResource CloseButtonMenu}"/>
         </EventTrigger>
@@ -93,87 +92,110 @@
         <Grid Grid.Row="1"
               Grid.Column="1"
               Grid.ColumnSpan="2">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition />
-                </Grid.RowDefinitions>
 
-                <TextBlock Text="Пользователи системы"
-                           Style="{DynamicResource HeadLineTextBlock}"
-                           Margin="0 20"/>
+            <materialDesign:DialogHost CloseOnClickAway="True">
+                <materialDesign:DialogHost.DialogContent>
+                    <StackPanel Width="250">
+                        <TextBlock Style="{DynamicResource MainTextBlock}"
+                                   Text="Добавление"
+                                   Margin=" 0 20 0 20"/>
+                        <TextBox Style="{DynamicResource TextBoxMain}"
+                                 materialDesign:HintAssist.Hint="Логин"/>
+                        <TextBox Style="{DynamicResource TextBoxMain}"
+                                 materialDesign:HintAssist.Hint="Пароль"/>
+                        <TextBox Style="{DynamicResource TextBoxMain}"
+                                 materialDesign:HintAssist.Hint="Роль"/>
+                        <Button Style="{DynamicResource MainButton}"
+                                Content="Добавить"
+                                Margin=" 0 20 0 20"/>
+                    </StackPanel>
+                </materialDesign:DialogHost.DialogContent>
 
-                <Grid Grid.Row="1">
-                    <DataGrid Style="{DynamicResource DataGrid}"
-                              AutoGenerateColumns="False"
-                              IsReadOnly="True"
-                              CanUserReorderColumns="False"
-                              ItemsSource="{x:Static data:Data.users}">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Логин"
-                                                Width="100"
-                                                MinWidth="150"
-                                                Binding="{Binding Login}"/>
-                            <DataGridTextColumn Header="Пароль"
-                                                Width="100"
-                                                MinWidth="150"
-                                                Binding="{Binding Password}"/>
-                            <DataGridTextColumn Header="Роль"
-                                                Width="*"
-                                                MinWidth="250"
-                                                Binding="{Binding Role}"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-
-                    <TextBox Style="{DynamicResource Search}"
-                             VerticalAlignment="Top"
-                             HorizontalAlignment="Right"
-                             materialDesign:HintAssist.Hint="Поиск по логину"/>
-
-                    <Grid x:Name="GridButtonMenu"
-                          Height="100"
-                          VerticalAlignment="Bottom" Margin="0,0,0,-50">
+                <Grid>
+                    <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition />
+                            <RowDefinition Height="auto"/>
                             <RowDefinition />
                         </Grid.RowDefinitions>
-                        <Rectangle Fill="{DynamicResource Gray}"
-                                   VerticalAlignment="Bottom"
-                                   Height="20"/>
-                        <Rectangle Fill="{DynamicResource Gray}"
-                                   Grid.Row="1"/>
-                        <Button x:Name="btnOpenButtonMenu"
-                                Style="{DynamicResource MainButton}"
-                                Width="150"
-                                Height="20"
-                                VerticalAlignment="Bottom" 
-                                Click="btnOpenButtonMenu_Click"
-                                Content="Меню"/>
 
-                            <Button x:Name="btnCloseButtonMenu"
-                                Style="{DynamicResource MainButton}"
-                                Width="150"
-                                Height="20"
-                                VerticalAlignment="Bottom"
-                                Visibility="Collapsed" 
-                                Click="btnCloseButtonMenu_Click"
-                                Content="Меню"/>
+                        <TextBlock Text="Пользователи системы"
+                                   Style="{DynamicResource HeadLineTextBlock}"
+                                   Margin="0 20"/>
 
-                        <UniformGrid Grid.Row="1"
-                                     Rows="1"
-                                     Columns="2"
-                                     VerticalAlignment="Top">
-                            <Button Content="Добавить пользователя"
-                                    Style="{DynamicResource MainButton}"
-                                    Width="225"/>
+                        <Grid Grid.Row="1">
+                            <DataGrid Style="{DynamicResource DataGrid}"
+                                      AutoGenerateColumns="False"
+                                      IsReadOnly="True"
+                                      CanUserReorderColumns="False"
+                                      ItemsSource="{x:Static data:Data.users}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Логин"
+                                                        Width="100"
+                                                        MinWidth="150"
+                                                        Binding="{Binding Login}"/>
+                                    <DataGridTextColumn Header="Пароль"
+                                                        Width="100"
+                                                        MinWidth="150"
+                                                        Binding="{Binding Password}"/>
+                                    <DataGridTextColumn Header="Роль"
+                                                        Width="*"
+                                                        MinWidth="250"
+                                                        Binding="{Binding Role}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
 
-                            <Button Content="Excel"
-                                    Style="{DynamicResource MainButton}"
-                                    Width="225"/>
-                        </UniformGrid>
+                            <TextBox Style="{DynamicResource TextBoxSearch}"
+                                     VerticalAlignment="Top"
+                                     HorizontalAlignment="Right"
+                                     materialDesign:HintAssist.Hint="Поиск по логину"/>
+
+                            <Grid x:Name="GridButtonMenu"
+                                  Height="100"
+                                  VerticalAlignment="Bottom" Margin="0,0,0,-50">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Rectangle Fill="{DynamicResource Gray}"
+                                           VerticalAlignment="Bottom"
+                                           Height="20"/>
+                                <Rectangle Fill="{DynamicResource Gray}"
+                                           Grid.Row="1"/>
+                                <Button x:Name="btnOpenButtonMenu"
+                                        Style="{DynamicResource MainButton}"
+                                        Width="150"
+                                        Height="20"
+                                        VerticalAlignment="Bottom" 
+                                        Click="btnOpenButtonMenu_Click"
+                                        Content="Меню"/>
+
+                                <Button x:Name="btnCloseButtonMenu"
+                                        Style="{DynamicResource MainButton}"
+                                        Width="150"
+                                        Height="20"
+                                        VerticalAlignment="Bottom"
+                                        Visibility="Collapsed" 
+                                        Click="btnCloseButtonMenu_Click"
+                                        Content="Меню"/>
+
+                                <UniformGrid Grid.Row="1"
+                                                 Rows="1"
+                                                 Columns="2"
+                                                 VerticalAlignment="Top">
+                                    <Button Content="Добавить пользователя"
+                                            Style="{DynamicResource MainButton}"
+                                            Width="225"
+                                            Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"/>
+
+                                    <Button Content="Excel"
+                                            Style="{DynamicResource MainButton}"
+                                            Width="225"/>
+                                </UniformGrid>
+                            </Grid>
+                        </Grid>
                     </Grid>
                 </Grid>
-            </Grid>
+            </materialDesign:DialogHost>
         </Grid>
 
         <Grid x:Name="GridMenu"
