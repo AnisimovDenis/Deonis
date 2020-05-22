@@ -35,5 +35,17 @@ namespace Deonis.Windows.Admin
             btnCloseMenu.Visibility = Visibility.Collapsed;
             btnOpenMenu.Visibility = Visibility.Visible;
         }
+
+        private void btnOpenButtonMenu_Click(object sender, RoutedEventArgs e)
+        {
+            btnCloseButtonMenu.Visibility = Visibility.Visible;
+            btnOpenButtonMenu.Visibility = Visibility.Collapsed;
+        }
+
+        private void btnCloseButtonMenu_Click(object sender, RoutedEventArgs e)
+        {
+            btnCloseButtonMenu.Visibility = Visibility.Collapsed;
+            btnOpenButtonMenu.Visibility = Visibility.Visible;
+        }
     }
 }
