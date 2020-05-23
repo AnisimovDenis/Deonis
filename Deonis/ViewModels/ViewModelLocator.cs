@@ -16,11 +16,10 @@ namespace Deonis.ViewModels
         public ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
+
+            SimpleIoc.Default.Register<AdminWindowViewModel>();
         }
-        
-        public static void Cleanup()
-        {
-            // TODO Clear the ViewModels
-        }
+
+        public AdminWindowViewModel AdminWindowModel => ServiceLocator.Current.GetInstance<AdminWindowViewModel>();
     }
 }
