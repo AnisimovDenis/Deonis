@@ -97,20 +97,26 @@
 
             <materialDesign:DialogHost CloseOnClickAway="True">
                 <materialDesign:DialogHost.DialogContent>
-                    <StackPanel Width="250">
-                        <TextBlock Style="{DynamicResource MainTextBlock}"
-                                   Text="Добавление"
-                                   Margin=" 0 20 0 20"/>
-                        <TextBox Style="{DynamicResource TextBoxMain}"
-                                 materialDesign:HintAssist.Hint="Логин"/>
-                        <TextBox Style="{DynamicResource TextBoxMain}"
-                                 materialDesign:HintAssist.Hint="Пароль"/>
-                        <TextBox Style="{DynamicResource TextBoxMain}"
-                                 materialDesign:HintAssist.Hint="Роль"/>
-                        <Button Style="{DynamicResource MainButton}"
-                                Content="Добавить"
-                                Margin=" 0 20 0 20"/>
-                    </StackPanel>
+                    <Grid>
+                        <StackPanel Width="250">
+                            <TextBlock Style="{DynamicResource MainTextBlock}"
+                                       Text="Добавление"
+                                       Margin=" 0 20 0 20"/>
+                            <TextBox Style="{DynamicResource TextBoxMain}"
+                                     materialDesign:HintAssist.Hint="Логин"/>
+                            <TextBox Style="{DynamicResource TextBoxMain}"
+                                     materialDesign:HintAssist.Hint="Пароль"/>
+                            <TextBox Style="{DynamicResource TextBoxMain}"
+                                     materialDesign:HintAssist.Hint="Роль"/>
+                            <Button Style="{DynamicResource MainButton}"
+                                    Content="Добавить"
+                                    Margin=" 0 20 0 20"/>
+                        </StackPanel>
+                        <StackPanel Width="500"
+                                    Height="100"
+                                    Background="Azure"
+                                    Visibility="Collapsed"/>
+                    </Grid>
                 </materialDesign:DialogHost.DialogContent>
 
                 <Grid>
@@ -129,13 +135,14 @@
                                       AutoGenerateColumns="False"
                                       IsReadOnly="True"
                                       CanUserReorderColumns="False"
-                                      ItemsSource="{x:Static data:Data.users}"
-                                      SelectedItem="{Binding SelectedUser}">
+                                      ItemsSource="{x:Static data:Data.users}">
                                 <DataGrid.ContextMenu>
                                     <ContextMenu>
-                                        <MenuItem Header="Редактировать"/>
+                                        <MenuItem Header="Редактировать"
+                                                  Icon="{materialDesign:PackIcon Kind=Edit}"/>
                                         <Separator />
-                                        <MenuItem Header="Удалить"/>
+                                        <MenuItem Header="Удалить"
+                                                  Icon="{materialDesign:PackIcon Kind=Trash}"/>
                                     </ContextMenu>
                                 </DataGrid.ContextMenu>
                                 <DataGrid.Columns>
@@ -176,7 +183,8 @@
                                         Width="150"
                                         Height="20"
                                         VerticalAlignment="Bottom" 
-                                        Click="btnOpenButtonMenu_Click"
+                                        Visibility="{Binding VisibilityButtonOpenMenuButton}" 
+                                        Command="{Binding ChangeVisibilityButtonOpenMenuButton}"
                                         Content="Меню"/>
 
                                 <Button x:Name="btnCloseButtonMenu"
@@ -184,8 +192,8 @@
                                         Width="150"
                                         Height="20"
                                         VerticalAlignment="Bottom"
-                                        Visibility="Collapsed" 
-                                        Click="btnCloseButtonMenu_Click"
+                                        Visibility="{Binding VisibilityButtonCloseMenuButton}"
+                                        Command="{Binding ChangeVisibilityButtonCloseMenuButton}"
                                         Content="Меню"/>
 
                                 <UniformGrid Grid.Row="1"
@@ -249,7 +257,8 @@
                         Style="{DynamicResource MenuButton}"
                         VerticalAlignment="Top"
                         HorizontalAlignment="Right"
-                        Click="ButtonOpenMenu_Click">
+                        Visibility="{Binding VisibilityButtonOpenMenu}"
+                        Command="{Binding ChangeVisibilityButtonOpenMenu}">
                     <materialDesign:PackIcon Kind="Menu"
                                              Height="35"
                                              Width="35"/>
@@ -258,8 +267,8 @@
                         Style="{DynamicResource MenuButton}"
                         VerticalAlignment="Top"
                         HorizontalAlignment="Right"
-                        Visibility="Collapsed"
-                        Click="ButtonCloseMenu_Click">
+                        Visibility="{Binding VisibilityButtonCloseMenu}"
+                        Command="{Binding ChangeVisibilityButtonCloseMenu}">
                     <materialDesign:PackIcon Kind="ArrowLeft"
                                              Height="35"
                                              Width="35"/>

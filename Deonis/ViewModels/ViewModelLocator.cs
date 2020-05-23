@@ -1,6 +1,8 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using CommonServiceLocator;
+using Deonis_lib.Services.Interfaces;
+using Deonis_lib.Services;
 
 namespace Deonis.ViewModels
 {
@@ -17,7 +19,11 @@ namespace Deonis.ViewModels
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
-            SimpleIoc.Default.Register<AdminWindowViewModel>();
+            var service = SimpleIoc.Default;
+
+            service.Register<AdminWindowViewModel>();
+            service.Register<IUserManager, UserManager>();
+            service.Register<IUserStore, UserStoreInMemory>();
         }
 
         public AdminWindowViewModel AdminWindowModel => ServiceLocator.Current.GetInstance<AdminWindowViewModel>();
