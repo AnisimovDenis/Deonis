@@ -98,7 +98,8 @@
             <materialDesign:DialogHost CloseOnClickAway="True">
                 <materialDesign:DialogHost.DialogContent>
                     <Grid>
-                        <StackPanel Width="250">
+                        <StackPanel Width="250"
+                                    Visibility="{Binding VisibilityStackPanelAddUser}">
                             <TextBlock Style="{DynamicResource MainTextBlock}"
                                        Text="Добавление"
                                        Margin=" 0 20 0 20"/>
@@ -112,10 +113,21 @@
                                     Content="Добавить"
                                     Margin=" 0 20 0 20"/>
                         </StackPanel>
-                        <StackPanel Width="500"
-                                    Height="100"
-                                    Background="Azure"
-                                    Visibility="Collapsed"/>
+                        <StackPanel Width="250"
+                                    Visibility="{Binding VisibilityStackPanelEditUser}">
+                            <TextBlock Style="{DynamicResource MainTextBlock}"
+                                       Text="Редактирование"
+                                       Margin=" 0 20 0 20"/>
+                            <TextBox Style="{DynamicResource TextBoxMain}"
+                                     materialDesign:HintAssist.Hint="Логин"/>
+                            <TextBox Style="{DynamicResource TextBoxMain}"
+                                     materialDesign:HintAssist.Hint="Пароль"/>
+                            <TextBox Style="{DynamicResource TextBoxMain}"
+                                     materialDesign:HintAssist.Hint="Роль"/>
+                            <Button Style="{DynamicResource MainButton}"
+                                    Content="Добавить"
+                                    Margin=" 0 20 0 20"/>
+                        </StackPanel>
                     </Grid>
                 </materialDesign:DialogHost.DialogContent>
 
@@ -139,7 +151,8 @@
                                 <DataGrid.ContextMenu>
                                     <ContextMenu>
                                         <MenuItem Header="Редактировать"
-                                                  Icon="{materialDesign:PackIcon Kind=Edit}"/>
+                                                  Icon="{materialDesign:PackIcon Kind=Edit}"
+                                                  Command="{Binding OnOpenDilogHostEditUser}"/>
                                         <Separator />
                                         <MenuItem Header="Удалить"
                                                   Icon="{materialDesign:PackIcon Kind=Trash}"/>
@@ -179,8 +192,7 @@
                                 <Rectangle Fill="{DynamicResource Gray}"
                                            Grid.Row="1"/>
                                 <Button x:Name="btnOpenButtonMenu"
-                                        Style="{DynamicResource MainButton}"
-                                        Width="150"
+                                        Style="{DynamicResource MenuButtonBottom}"
                                         Height="20"
                                         VerticalAlignment="Bottom" 
                                         Visibility="{Binding VisibilityButtonOpenMenuButton}" 
@@ -188,8 +200,7 @@
                                         Content="Меню"/>
 
                                 <Button x:Name="btnCloseButtonMenu"
-                                        Style="{DynamicResource MainButton}"
-                                        Width="150"
+                                        Style="{DynamicResource MenuButtonBottom}"
                                         Height="20"
                                         VerticalAlignment="Bottom"
                                         Visibility="{Binding VisibilityButtonCloseMenuButton}"
@@ -203,7 +214,7 @@
                                     <Button Content="Добавить пользователя"
                                             Style="{DynamicResource MainButton}"
                                             Width="225"
-                                            Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"/>
+                                            Command="{Binding OnOpenDilogHostAddUser}"/>
 
                                     <Button Content="Excel"
                                             Style="{DynamicResource MainButton}"

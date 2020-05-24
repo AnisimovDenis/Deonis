@@ -2,6 +2,7 @@
 using Deonis_lib.Services.Interfaces;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,6 +66,28 @@ namespace Deonis.ViewModels
 
 
 
+        private Visibility visibilityStackPanelAddUser = Visibility.Collapsed;
+
+        public Visibility VisibilityStackPanelAddUser
+        {
+            get => visibilityStackPanelAddUser;
+            set => Set(ref visibilityStackPanelAddUser, value);
+        }
+
+        private Visibility visibilityStackPanelEditUser = Visibility.Collapsed;
+
+        public Visibility VisibilityStackPanelEditUser
+        {
+            get => visibilityStackPanelEditUser;
+            set => Set(ref visibilityStackPanelEditUser, value);
+        }
+
+        public ICommand OnOpenDilogHostAddUser { get; }
+
+        public ICommand OnOpenDilogHostEditUser { get; }
+
+
+
         public AdminWindowViewModel(IUserManager UserManager)
         {
             ChangeVisibilityButtonCloseMenu = new RelayCommand(OnChangeVisibilityButtonCloseMenuExecuted, OnChangeVisibilityButtonCloseMenuExecute);
@@ -72,6 +95,9 @@ namespace Deonis.ViewModels
 
             ChangeVisibilityButtonCloseMenuButton = new RelayCommand(OnChangeVisibilityButtonCloseMenuButtonExecuted, OnChangeVisibilityButtonCloseMenuButtonExecute);
             ChangeVisibilityButtonOpenMenuButton = new RelayCommand(OnChangeVisibilityButtonOpenMenuButtonExecuted, OnChangeVisibilityButtonOpenMenuButtonExecute);
+
+            OnOpenDilogHostAddUser = new RelayCommand(OnOpenDilogHostAddUserExecuted, OnOpenDilogHostAddUserExecute);
+            OnOpenDilogHostEditUser = new RelayCommand(OnOpenDilogHostEditUserExecuted, OnOpenDilogHostEditUserExecute);
 
             this.UserManager = UserManager;
         }
@@ -107,6 +133,27 @@ namespace Deonis.ViewModels
         {
             VisibilityButtonCloseMenuButton = Visibility.Visible;
             VisibilityButtonOpenMenuButton = Visibility.Collapsed;
+        }
+
+
+        private bool OnOpenDilogHostAddUserExecute() => true;
+
+        private void OnOpenDilogHostAddUserExecuted()
+        {
+            DialogHost.OpenDialogCommand.Execute(null, null);
+
+            VisibilityStackPanelAddUser = Visibility.Visible;
+            VisibilityStackPanelEditUser = Visibility.Collapsed;
+        }
+
+        private bool OnOpenDilogHostEditUserExecute() => true;
+
+        private void OnOpenDilogHostEditUserExecuted()
+        {
+            DialogHost.OpenDialogCommand.Execute(null, null);
+
+            VisibilityStackPanelAddUser = Visibility.Collapsed;
+            VisibilityStackPanelEditUser = Visibility.Visible;
         }
     }
 }
