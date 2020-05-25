@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Администратор" 
         Height="750" Width="1250"
-        xmlns:data="clr-namespace:Deonis_lib.TestData;assembly=Deonis-lib"
+        xmlns:data="clr-namespace:Deonis_lib.Data;assembly=Deonis-lib"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         DataContext="{Binding AdminWindowModel, Source={StaticResource Locator}}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -66,6 +66,9 @@
         </EventTrigger>
     </Window.Triggers>
     <Grid>
+        <Grid.Resources>
+            <data:User x:Key="data"/>
+        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
             <RowDefinition />
@@ -146,8 +149,7 @@
                             <DataGrid Style="{DynamicResource DataGrid}"
                                       AutoGenerateColumns="False"
                                       IsReadOnly="True"
-                                      CanUserReorderColumns="False"
-                                      ItemsSource="{x:Static data:Data.users}">
+                                      CanUserReorderColumns="False">
                                 <DataGrid.ContextMenu>
                                     <ContextMenu>
                                         <MenuItem Header="Редактировать"
