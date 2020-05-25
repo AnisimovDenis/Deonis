@@ -86,6 +86,7 @@ namespace Deonis.ViewModels
 
         public ICommand OnOpenDilogHostEditUser { get; }
 
+        
 
 
         public AdminWindowViewModel(IUserManager UserManager)
@@ -98,6 +99,7 @@ namespace Deonis.ViewModels
 
             OnOpenDilogHostAddUser = new RelayCommand(OnOpenDilogHostAddUserExecuted, OnOpenDilogHostAddUserExecute);
             OnOpenDilogHostEditUser = new RelayCommand(OnOpenDilogHostEditUserExecuted, OnOpenDilogHostEditUserExecute);
+
 
             this.UserManager = UserManager;
         }
