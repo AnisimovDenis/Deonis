@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Shop" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-AP3SV4P\SQLEXPRESS;Initial Catalog=Shop;Integrated Security=True" SettingsObjectName="Deonis_lib.Properties.Settings" SettingsPropertyName="ShopConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Shop" Class="DataClasses" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-AP3SV4P\SQLEXPRESS;Initial Catalog=Shop;Integrated Security=True" SettingsObjectName="Deonis.Properties.Settings" SettingsPropertyName="ShopConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Employee" Member="Employees">
     <Type Name="Employee">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -14,13 +14,6 @@
       <Association Name="User_Employee" Member="User" ThisKey="IdUser" OtherKey="Id" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.NameOfTicket" Member="NameOfTickets">
-    <Type Name="NameOfTicket">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
-      <Association Name="NameOfTicket_Ticket" Member="Tickets" ThisKey="Id" OtherKey="IdName" Type="Ticket" />
-    </Type>
-  </Table>
   <Table Name="dbo.[User]" Member="Users">
     <Type Name="User">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -29,6 +22,13 @@
       <Column Name="IdRole" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="User_Employee" Member="Employees" ThisKey="Id" OtherKey="IdUser" Type="Employee" />
       <Association Name="Role_User" Member="Role" ThisKey="IdRole" OtherKey="Id" Type="Role" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NameOfTicket" Member="NameOfTickets">
+    <Type Name="NameOfTicket">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="NameOfTicket_Ticket" Member="Tickets" ThisKey="Id" OtherKey="IdName" Type="Ticket" />
     </Type>
   </Table>
   <Table Name="dbo.NameTypeOfTicket" Member="NameTypeOfTickets">
@@ -76,6 +76,14 @@
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
       <Association Name="TypeOfTransport_Ticket" Member="Tickets" ThisKey="Id" OtherKey="IdTypeOfTransport" Type="Ticket" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserView" Member="UserViews">
+    <Type Name="UserView">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Login" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="Role" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>
