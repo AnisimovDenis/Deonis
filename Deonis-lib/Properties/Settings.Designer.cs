@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Deonis.Properties {
+namespace Deonis_lib.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

@@ -4,10 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Deonis.Windows.Admin"
+        xmlns:data="clr-namespace:Deonis.Data"
+        xmlns:testdata="clr-namespace:Deonis_lib.TestData;assembly=Deonis-lib"
         mc:Ignorable="d"
         Title="Администратор" 
         Height="750" Width="1250"
-        xmlns:data="clr-namespace:Deonis_lib.TestData;assembly=Deonis-lib"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         DataContext="{Binding AdminWindowModel, Source={StaticResource Locator}}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -66,6 +67,9 @@
         </EventTrigger>
     </Window.Triggers>
     <Grid>
+        <Grid.Resources>
+            <data:DataClasses x:Key="data"/>
+        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
             <RowDefinition />
@@ -147,7 +151,7 @@
                                       AutoGenerateColumns="False"
                                       IsReadOnly="True"
                                       CanUserReorderColumns="False"
-                                      ItemsSource="{x:Static data:Data.users}">
+                                      ItemsSource="{Binding UserViews, Source={StaticResource data}}">
                                 <DataGrid.ContextMenu>
                                     <ContextMenu>
                                         <MenuItem Header="Редактировать"

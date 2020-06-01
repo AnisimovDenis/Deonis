@@ -1,6 +1,5 @@
 ﻿using Deonis_lib.Entities;
 using Deonis_lib.Services.Interfaces;
-using Deonis_lib.TestData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +10,7 @@ namespace Deonis_lib.Services
 {
     public class UserStoreInMemory : IUserStore
     {
-        public IEnumerable<User> Get() => Data.users;
+        public IEnumerable<User> Get() => Deonis_lib.TestData.Data.users;
 
         public void Edit(int id, User user)
         {
