@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace Deonis {
+namespace Deonis_lib {
     
     
     /// <summary>
@@ -3956,7 +3956,7 @@ namespace Deonis {
         }
     }
 }
-namespace Deonis.ShopDataSetTableAdapters {
+namespace Deonis_lib.ShopDataSetTableAdapters {
     
     
     /// <summary>
@@ -4140,7 +4140,7 @@ SELECT Id, LastName, FirstName, MiddleName, IdUser, PhoneNumber, Email, Address 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Deonis.Properties.Settings.Default.ShopConnectionString;
+            this._connection.ConnectionString = global::Deonis_lib.Properties.Settings.Default.ShopConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4598,7 +4598,7 @@ SELECT Id, LastName, FirstName, MiddleName, IdUser, PhoneNumber, Email, Address 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Deonis.Properties.Settings.Default.ShopConnectionString;
+            this._connection.ConnectionString = global::Deonis_lib.Properties.Settings.Default.ShopConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4916,7 +4916,7 @@ SELECT Id, LastName, FirstName, MiddleName, IdUser, PhoneNumber, Email, Address 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Deonis.Properties.Settings.Default.ShopConnectionString;
+            this._connection.ConnectionString = global::Deonis_lib.Properties.Settings.Default.ShopConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5255,7 +5255,7 @@ SELECT Id, Article, IdTicket, NumberOfTrips, IdEmployee, Price FROM [Order] WHER
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Deonis.Properties.Settings.Default.ShopConnectionString;
+            this._connection.ConnectionString = global::Deonis_lib.Properties.Settings.Default.ShopConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5588,7 +5588,7 @@ SELECT Id, Article, IdTicket, NumberOfTrips, IdEmployee, Price FROM [Order] WHER
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Deonis.Properties.Settings.Default.ShopConnectionString;
+            this._connection.ConnectionString = global::Deonis_lib.Properties.Settings.Default.ShopConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5924,7 +5924,7 @@ SELECT Id, IdName, Article, IdTypeOfTicket, IdTypeOfTransport, PricePerTrip FROM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Deonis.Properties.Settings.Default.ShopConnectionString;
+            this._connection.ConnectionString = global::Deonis_lib.Properties.Settings.Default.ShopConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6259,7 +6259,7 @@ SELECT Id, IdName, Article, IdTypeOfTicket, IdTypeOfTransport, PricePerTrip FROM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Deonis.Properties.Settings.Default.ShopConnectionString;
+            this._connection.ConnectionString = global::Deonis_lib.Properties.Settings.Default.ShopConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6587,7 +6587,7 @@ SELECT Id, Login, Password, IdRole FROM [User] WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Deonis.Properties.Settings.Default.ShopConnectionString;
+            this._connection.ConnectionString = global::Deonis_lib.Properties.Settings.Default.ShopConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
