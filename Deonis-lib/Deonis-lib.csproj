@@ -59,11 +59,6 @@
     <Compile Include="Services\Interfaces\IUserManager.cs" />
     <Compile Include="Services\UserManager.cs" />
     <Compile Include="Services\UserStoreInMemory.cs" />
-    <Compile Include="ShopDataSet.Designer.cs">
-      <DependentUpon>ShopDataSet.xsd</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="TestData\Data.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -71,17 +66,6 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="ShopDataSet.xsc">
-      <DependentUpon>ShopDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="ShopDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ShopDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ShopDataSet.xss">
-      <DependentUpon>ShopDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
