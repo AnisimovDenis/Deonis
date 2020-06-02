@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Deonis_lib.Entities.Base
 {
-    public abstract class Entitie
+    /// <summary> Базовая сущность </summary>
+    public abstract class BaseEntitie
     {
+        /// <summary> Идентификатор </summary>
         public int Id { get; set; }
     }
 }

@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Deonis_lib.Entities.Base
 {
-    public abstract class NamedEntitie : Entitie
+    /// <summary> Сущность с именем </summary>
+    public abstract class NamedEntitie : BaseEntitie
     {
+        /// <summary> Имя </summary>
         public string Name { get; set; }
     }
 }
