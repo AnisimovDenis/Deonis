@@ -1,10 +1,10 @@
-﻿namespace Deonis_lib.Entities
+﻿using Deonis_lib.Entities.Base;
+
+namespace Deonis_lib.Entities
 {
     /// <summary> Пользователь </summary>
-    public class User
+    public class User : Entitie
     {
-        public int Id { get; set; }
-
         public string Login { get; set; }
 
         public string Password { get; set; }

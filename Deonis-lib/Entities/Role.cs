@@ -1,9 +1,6 @@
-﻿namespace Deonis_lib.Entities
-{
-    public class Role
-    {
-        public int Id { get; set; }
+﻿using Deonis_lib.Entities.Base;
 
-        public string Name { get; set; }
-    }
+namespace Deonis_lib.Entities
+{
+    public class Role : NamedEntitie { }
 }

@@ -1,12 +1,10 @@
-﻿namespace Deonis_lib.Entities
+﻿using Deonis_lib.Entities.Base;
+
+namespace Deonis_lib.Entities
 {
     /// <summary> Билет </summary>
-    public class Ticket
+    public class Ticket : NamedEntitie
     {
-        public int Id { get; set; }
-
-        public string Name { get; set; }
-
         public string Article { get; set; }
 
         public string TypeOfTicket { get; set; }

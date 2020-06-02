@@ -1,10 +1,10 @@
-﻿namespace Deonis_lib.Entities
+﻿using Deonis_lib.Entities.Base;
+
+namespace Deonis_lib.Entities
 {
     /// <summary> Заказ </summary>
-    public class Order
+    public class Order : Entitie
     {
-        public int Id { get; set; }
-
         public string Article { get; set; }
 
         public string Ticket { get; set; }
