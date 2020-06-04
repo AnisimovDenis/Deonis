@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight.Ioc;
 using CommonServiceLocator;
 using Deonis_lib.Services.Interfaces;
 using Deonis_lib.Services;
+using Deonis_lib.Services.InMemory;
 
 namespace Deonis.ViewModels
 {

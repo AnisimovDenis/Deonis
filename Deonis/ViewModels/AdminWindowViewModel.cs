@@ -5,6 +5,7 @@ using GalaSoft.MvvmLight.Command;
 using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -86,11 +87,22 @@ namespace Deonis.ViewModels
 
         public ICommand OnOpenDilogHostEditUser { get; }
 
-        
 
+
+
+
+        private ObservableCollection<User> users;
+
+        public ObservableCollection<User> Users
+        {
+            get => users;
+            private set => Set(ref users, value);
+        }
 
         public AdminWindowViewModel(IUserManager UserManager)
         {
+            users = new ObservableCollection<User>(UserManager.GetAll());
+
             ChangeVisibilityButtonCloseMenu = new RelayCommand(OnChangeVisibilityButtonCloseMenuExecuted, OnChangeVisibilityButtonCloseMenuExecute);
             ChangeVisibilityButtonOpenMenu = new RelayCommand(OnChangeVisibilityButtonOpenMenuExecuted, OnChangeVisibilityButtonOpenMenuExecute);
 
