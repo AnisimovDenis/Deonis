@@ -8,7 +8,7 @@ namespace Deonis_lib.Services.Interfaces
 {
     /// <summary>Хранилище объектов</summary>
     /// <typeparam name="T">Тип хранимого объекта</typeparam>
-    interface IDataStore<T>
+    public interface IDataStore<T>
     {
         /// <summary>Получить все объекты</summary>
         /// <returns>Перечисление объектов</returns>

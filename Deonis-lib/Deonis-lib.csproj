@@ -62,7 +62,7 @@
     <Compile Include="Services\Interfaces\IUserStore.cs" />
     <Compile Include="Services\Interfaces\IUserManager.cs" />
     <Compile Include="Services\UserManager.cs" />
-    <Compile Include="Services\UserStoreInMemory.cs" />
+    <Compile Include="Services\InMemory\UserStoreInMemory.cs" />
     <Compile Include="TestData\Data.cs" />
   </ItemGroup>
   <ItemGroup>
