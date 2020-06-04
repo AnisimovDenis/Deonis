@@ -3,5 +3,5 @@
 namespace Deonis_lib.Entities
 {
     /// <summary> Роль </summary>
-    public class Role : NamedEntitie { }
+    public class Role : NamedEntity { }
 }

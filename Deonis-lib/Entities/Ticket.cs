@@ -3,7 +3,7 @@
 namespace Deonis_lib.Entities
 {
     /// <summary> Билет </summary>
-    public class Ticket : NamedEntitie
+    public class Ticket : NamedEntity
     {
         /// <summary> Артикл билета </summary>
         public string Article { get; set; }

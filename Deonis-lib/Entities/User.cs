@@ -3,7 +3,7 @@
 namespace Deonis_lib.Entities
 {
     /// <summary> Пользователь </summary>
-    public class User : BaseEntitie
+    public class User : BaseEntity
     {
         /// <summary> Логин пользователя </summary>
         public string Login { get; set; }

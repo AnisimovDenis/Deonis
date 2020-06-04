@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Deonis_lib.Entities.Base
 {
     /// <summary> Базовая сущность </summary>
-    public abstract class BaseEntitie
+    public abstract class BaseEntity
     {
         /// <summary> Идентификатор </summary>
         public int Id { get; set; }

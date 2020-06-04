@@ -3,7 +3,7 @@
 namespace Deonis_lib.Entities
 {
     /// <summary> Заказ </summary>
-    public class Order : BaseEntitie
+    public class Order : BaseEntity
     {
         /// <summary> Артикл заказа </summary>
         public string Article { get; set; }
