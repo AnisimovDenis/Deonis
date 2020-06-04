@@ -19,7 +19,7 @@ namespace Deonis_lib.Services
 
         public IEnumerable<User> GetAll()
         {
-            return store.Get();
+            return store.GetAll();
         }
 
         public void Add(User newUser)

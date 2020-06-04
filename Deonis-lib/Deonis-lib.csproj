@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Base\BaseEntity.cs" />
+    <Compile Include="Entities\Base\NamedEntity.cs" />
     <Compile Include="Entities\Employee.cs" />
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\Role.cs" />
@@ -55,10 +57,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Services\InMemory\DataStoreInMemory.cs" />
+    <Compile Include="Services\Interfaces\IDataStore.cs" />
     <Compile Include="Services\Interfaces\IUserStore.cs" />
     <Compile Include="Services\Interfaces\IUserManager.cs" />
     <Compile Include="Services\UserManager.cs" />
-    <Compile Include="Services\UserStoreInMemory.cs" />
+    <Compile Include="Services\InMemory\UserStoreInMemory.cs" />
     <Compile Include="TestData\Data.cs" />
   </ItemGroup>
   <ItemGroup>
