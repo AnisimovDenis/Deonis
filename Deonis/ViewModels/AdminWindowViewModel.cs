@@ -107,10 +107,10 @@ namespace Deonis.ViewModels
             private set => Set(ref employees, value);
         }
 
-        public AdminWindowViewModel(IUserManager UserManager)
+        public AdminWindowViewModel(IUserManager UserManager, IEmployeeManager EmployeeManager)
         {
             users = new ObservableCollection<User>(UserManager.GetAll());
-            employees = new ObservableCollection<Employee>();
+            employees = new ObservableCollection<Employee>(EmployeeManager.GetAll());
 
             ChangeVisibilityButtonCloseMenu = new RelayCommand(OnChangeVisibilityButtonCloseMenuExecuted, OnChangeVisibilityButtonCloseMenuExecute);
             ChangeVisibilityButtonOpenMenu = new RelayCommand(OnChangeVisibilityButtonOpenMenuExecuted, OnChangeVisibilityButtonOpenMenuExecute);
