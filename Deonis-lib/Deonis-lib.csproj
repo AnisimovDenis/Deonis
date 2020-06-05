@@ -57,6 +57,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Services\EmployeeManager.cs" />
     <Compile Include="Services\InMemory\DataStoreInMemory.cs" />
     <Compile Include="Services\InMemory\EmployeeStoreInMemory.cs" />
     <Compile Include="Services\Interfaces\IDataStore.cs" />

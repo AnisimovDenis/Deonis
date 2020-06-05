@@ -17,7 +17,5 @@ namespace Deonis_lib.Entities
         public string PhoneNubmer { get; set; }
         /// <summary> Почта сотрудника </summary>
         public string Email { get; set; }
-        /// <summary> Адрес сотрудника </summary>
-        public string Address { get; set; }
     }
 }
