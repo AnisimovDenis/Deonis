@@ -25,6 +25,8 @@ namespace Deonis.ViewModels
             service.Register<AdminWindowViewModel>();
             service.Register<IUserManager, UserManager>();
             service.Register<IUserStore, UserStoreInMemory>();
+            service.Register<IEmployeeManager, EmployeeManager>();
+            service.Register<IEmployeeStore, EmployeeStoreInMemory>();
         }
 
         public AdminWindowViewModel AdminWindowModel => ServiceLocator.Current.GetInstance<AdminWindowViewModel>();
