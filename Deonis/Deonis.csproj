@@ -90,6 +90,9 @@
     </Compile>
     <Compile Include="ViewModels\AdminWindowViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
+    <Compile Include="Views\AdminViews\EmployeeView.xaml.cs">
+      <DependentUpon>EmployeeView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AdminViews\UserView.xaml.cs">
       <DependentUpon>UserView.xaml</DependentUpon>
     </Compile>
@@ -137,6 +140,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Resource\MainDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AdminViews\EmployeeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
