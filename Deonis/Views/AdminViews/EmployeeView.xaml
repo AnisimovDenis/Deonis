@@ -86,7 +86,7 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
 
-                    <TextBlock Text="Пользователи системы"
+                    <TextBlock Text="Сотрудники"
                                    Style="{DynamicResource HeadLineTextBlock}"
                                    Margin="0 20"/>
 

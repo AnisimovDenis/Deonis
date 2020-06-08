@@ -18,6 +18,8 @@ namespace Deonis.ViewModels
     public class AdminWindowViewModel : ViewModelBase
     {
         private readonly IUserManager UserManager;
+        private readonly IEmployeeManager EmployeeManager;
+        private readonly ITicketManager TicketManager;
 
 
 
@@ -133,6 +135,8 @@ namespace Deonis.ViewModels
 
 
             this.UserManager = UserManager;
+            this.EmployeeManager = EmployeeManager;
+            this.TicketManager = TicketManager;
         }
 
         private bool OnChangeVisibilityButtonCloseMenuExecute() => true;

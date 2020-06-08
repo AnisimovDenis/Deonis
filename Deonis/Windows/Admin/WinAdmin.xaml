@@ -81,7 +81,8 @@
               Grid.ColumnSpan="2">
 
             <view:UserView Visibility="Collapsed"/>
-            <view:EmployeeView />
+            <view:EmployeeView Visibility="Collapsed"/>
+            <view:TicketView />
         </Grid>
 
         <Grid x:Name="GridMenu"
