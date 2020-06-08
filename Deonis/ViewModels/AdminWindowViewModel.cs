@@ -1,4 +1,5 @@
 ﻿using Deonis_lib.Entities;
+using Deonis_lib.Services;
 using Deonis_lib.Services.Interfaces;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -107,10 +108,19 @@ namespace Deonis.ViewModels
             private set => Set(ref employees, value);
         }
 
-        public AdminWindowViewModel(IUserManager UserManager, IEmployeeManager EmployeeManager)
+        private ObservableCollection<Ticket> tickets;
+
+        public ObservableCollection<Ticket> Tickets
+        {
+            get => tickets;
+            private set => Set(ref tickets, value);
+        }
+
+        public AdminWindowViewModel(IUserManager UserManager, IEmployeeManager EmployeeManager, ITicketManager TicketManager)
         {
             users = new ObservableCollection<User>(UserManager.GetAll());
             employees = new ObservableCollection<Employee>(EmployeeManager.GetAll());
+            tickets = new ObservableCollection<Ticket>(TicketManager.GetAll());
 
             ChangeVisibilityButtonCloseMenu = new RelayCommand(OnChangeVisibilityButtonCloseMenuExecuted, OnChangeVisibilityButtonCloseMenuExecute);
             ChangeVisibilityButtonOpenMenu = new RelayCommand(OnChangeVisibilityButtonOpenMenuExecuted, OnChangeVisibilityButtonOpenMenuExecute);
