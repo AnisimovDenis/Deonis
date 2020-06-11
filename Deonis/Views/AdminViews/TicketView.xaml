@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Deonis.Views.AdminViews"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"    
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              DataContext="{Binding AdminWindowModel, Source={StaticResource Locator}}"
              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -86,7 +86,7 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
 
-                    <TextBlock Text="Заказы"
+                    <TextBlock Text="Билеты"
                                Style="{DynamicResource HeadLineTextBlock}"
                                Margin="0 20"/>
 
@@ -94,7 +94,8 @@
                         <DataGrid Style="{DynamicResource DataGrid}"
                                   AutoGenerateColumns="False"
                                   IsReadOnly="True"
-                                  CanUserReorderColumns="False">
+                                  CanUserReorderColumns="False"
+                                  ItemsSource="{Binding Tickets}">
                             <DataGrid.ContextMenu>
                                 <ContextMenu>
                                     <MenuItem Header="Редактировать"
@@ -106,26 +107,26 @@
                                 </ContextMenu>
                             </DataGrid.ContextMenu>
                             <DataGrid.Columns>
+                                <DataGridTextColumn Header="Наименование"
+                                                    Width="50"
+                                                    MinWidth="150"
+                                                    Binding="{Binding Name}"/>
                                 <DataGridTextColumn Header="Артикл"
                                                     Width="50"
                                                     MinWidth="150"
                                                     Binding="{Binding Article}"/>
-                                <DataGridTextColumn Header="Билет"
+                                <DataGridTextColumn Header="Тип билета"
                                                     Width="50"
                                                     MinWidth="150"
-                                                    Binding="{Binding Ticket}"/>
-                                <DataGridTextColumn Header="Кол-во поездок"
+                                                    Binding="{Binding TypeOfTicket}"/>
+                                <DataGridTextColumn Header="Тип транспорта"
                                                     Width="50"
                                                     MinWidth="150"
-                                                    Binding="{Binding NumberOfTrips}"/>
-                                <DataGridTextColumn Header="Сотрудник"
+                                                    Binding="{Binding TypeOfTransport}"/>
+                                <DataGridTextColumn Header="Цена за поездку"
                                                     Width="50"
                                                     MinWidth="150"
-                                                    Binding="{Binding Employee}"/>
-                                <DataGridTextColumn Header="Цена"
-                                                    Width="*"
-                                                    MinWidth="150"
-                                                    Binding="{Binding Price}"/>
+                                                    Binding="{Binding PricePerTrip}"/>
                             </DataGrid.Columns>
                         </DataGrid>
 

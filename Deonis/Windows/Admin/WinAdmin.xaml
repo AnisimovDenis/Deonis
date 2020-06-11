@@ -82,7 +82,8 @@
 
             <view:UserView Visibility="Collapsed"/>
             <view:EmployeeView Visibility="Collapsed"/>
-            <view:TicketView />
+            <view:TicketView Visibility="Collapsed"/>
+            <view:OrderView />
         </Grid>
 
         <Grid x:Name="GridMenu"

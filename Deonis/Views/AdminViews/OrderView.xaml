@@ -86,7 +86,7 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
 
-                    <TextBlock Text="Билеты"
+                    <TextBlock Text="Заказы"
                                Style="{DynamicResource HeadLineTextBlock}"
                                Margin="0 20"/>
 
@@ -95,7 +95,7 @@
                                   AutoGenerateColumns="False"
                                   IsReadOnly="True"
                                   CanUserReorderColumns="False"
-                                  ItemsSource="{Binding Tickets}">
+                                  ItemsSource="{Binding Orders}">
                             <DataGrid.ContextMenu>
                                 <ContextMenu>
                                     <MenuItem Header="Редактировать"
@@ -107,26 +107,26 @@
                                 </ContextMenu>
                             </DataGrid.ContextMenu>
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Наименование"
-                                                    Width="50"
-                                                    MinWidth="150"
-                                                    Binding="{Binding Name}"/>
                                 <DataGridTextColumn Header="Артикл"
                                                     Width="50"
                                                     MinWidth="150"
                                                     Binding="{Binding Article}"/>
-                                <DataGridTextColumn Header="Тип билета"
+                                <DataGridTextColumn Header="Билет"
                                                     Width="50"
                                                     MinWidth="150"
-                                                    Binding="{Binding TypeOfTicket}"/>
-                                <DataGridTextColumn Header="Тип транспорта"
+                                                    Binding="{Binding Ticket}"/>
+                                <DataGridTextColumn Header="Кол-во поездок"
                                                     Width="50"
                                                     MinWidth="150"
-                                                    Binding="{Binding TypeOfTransport}"/>
-                                <DataGridTextColumn Header="Цена за поездку"
+                                                    Binding="{Binding NumberOfTrips}"/>
+                                <DataGridTextColumn Header="Сотрудник"
                                                     Width="50"
                                                     MinWidth="150"
-                                                    Binding="{Binding PricePerTrip}"/>
+                                                    Binding="{Binding Employee}"/>
+                                <DataGridTextColumn Header="Цена"
+                                                    Width="*"
+                                                    MinWidth="150"
+                                                    Binding="{Binding Price}"/>
                             </DataGrid.Columns>
                         </DataGrid>
 

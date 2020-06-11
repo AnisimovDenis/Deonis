@@ -119,11 +119,21 @@ namespace Deonis.ViewModels
             private set => Set(ref tickets, value);
         }
 
+        private ObservableCollection<Order> orders;
+
+        public ObservableCollection<Order> Orders
+        {
+            get => orders;
+            private set => Set(ref orders, value);
+        }
+
         public AdminWindowViewModel(IUserManager UserManager, IEmployeeManager EmployeeManager, ITicketManager TicketManager, IOrderManager OrderManager)
         {
             users = new ObservableCollection<User>(UserManager.GetAll());
             employees = new ObservableCollection<Employee>(EmployeeManager.GetAll());
             tickets = new ObservableCollection<Ticket>(TicketManager.GetAll());
+            orders = new ObservableCollection<Order>(OrderManager.GetAll());
+
 
             ChangeVisibilityButtonCloseMenu = new RelayCommand(OnChangeVisibilityButtonCloseMenuExecuted, OnChangeVisibilityButtonCloseMenuExecute);
             ChangeVisibilityButtonOpenMenu = new RelayCommand(OnChangeVisibilityButtonOpenMenuExecuted, OnChangeVisibilityButtonOpenMenuExecute);
