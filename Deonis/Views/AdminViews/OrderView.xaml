@@ -125,7 +125,7 @@
                                                     Binding="{Binding Employee}"/>
                                 <DataGridTextColumn Header="Цена"
                                                     Width="*"
-                                                    MinWidth="150"
+                                                    MinWidth="250"
                                                     Binding="{Binding Price}"/>
                             </DataGrid.Columns>
                         </DataGrid>
