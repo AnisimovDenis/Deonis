@@ -20,6 +20,7 @@ namespace Deonis.ViewModels
         private readonly IUserManager UserManager;
         private readonly IEmployeeManager EmployeeManager;
         private readonly ITicketManager TicketManager;
+        private readonly IOrderManager OrderManager;
 
 
 
@@ -118,7 +119,7 @@ namespace Deonis.ViewModels
             private set => Set(ref tickets, value);
         }
 
-        public AdminWindowViewModel(IUserManager UserManager, IEmployeeManager EmployeeManager, ITicketManager TicketManager)
+        public AdminWindowViewModel(IUserManager UserManager, IEmployeeManager EmployeeManager, ITicketManager TicketManager, IOrderManager OrderManager)
         {
             users = new ObservableCollection<User>(UserManager.GetAll());
             employees = new ObservableCollection<Employee>(EmployeeManager.GetAll());
@@ -137,6 +138,7 @@ namespace Deonis.ViewModels
             this.UserManager = UserManager;
             this.EmployeeManager = EmployeeManager;
             this.TicketManager = TicketManager;
+            this.OrderManager = OrderManager;
         }
 
         private bool OnChangeVisibilityButtonCloseMenuExecute() => true;

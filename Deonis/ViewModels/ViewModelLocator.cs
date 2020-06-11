@@ -27,6 +27,8 @@ namespace Deonis.ViewModels
             service.Register<IUserStore, UserStoreInMemory>();
             service.Register<IEmployeeManager, EmployeeManager>();
             service.Register<IEmployeeStore, EmployeeStoreInMemory>();
+            service.Register<IOrderManager, OrderManager>();
+            service.Register<IOrderStore, OrderStoreInMemory>();
             service.Register<ITicketManager, TicketManager>();
             service.Register<ITicketStore, TicketStoreInMemory>();
         }
