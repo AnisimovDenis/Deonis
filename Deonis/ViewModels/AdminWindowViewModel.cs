@@ -1,10 +1,12 @@
 ﻿using Deonis_lib.Entities;
+using Deonis_lib.Services;
 using Deonis_lib.Services.Interfaces;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +18,9 @@ namespace Deonis.ViewModels
     public class AdminWindowViewModel : ViewModelBase
     {
         private readonly IUserManager UserManager;
+        private readonly IEmployeeManager EmployeeManager;
+        private readonly ITicketManager TicketManager;
+        private readonly IOrderManager OrderManager;
 
 
 
@@ -86,11 +91,50 @@ namespace Deonis.ViewModels
 
         public ICommand OnOpenDilogHostEditUser { get; }
 
-        
 
 
-        public AdminWindowViewModel(IUserManager UserManager)
+
+
+        private ObservableCollection<User> users;
+
+        public ObservableCollection<User> Users
         {
+            get => users;
+            private set => Set(ref users, value);
+        }
+
+        private ObservableCollection<Employee> employees;
+
+        public ObservableCollection<Employee> Employees
+        {
+            get => employees;
+            private set => Set(ref employees, value);
+        }
+
+        private ObservableCollection<Ticket> tickets;
+
+        public ObservableCollection<Ticket> Tickets
+        {
+            get => tickets;
+            private set => Set(ref tickets, value);
+        }
+
+        private ObservableCollection<Order> orders;
+
+        public ObservableCollection<Order> Orders
+        {
+            get => orders;
+            private set => Set(ref orders, value);
+        }
+
+        public AdminWindowViewModel(IUserManager UserManager, IEmployeeManager EmployeeManager, ITicketManager TicketManager, IOrderManager OrderManager)
+        {
+            users = new ObservableCollection<User>(UserManager.GetAll());
+            employees = new ObservableCollection<Employee>(EmployeeManager.GetAll());
+            tickets = new ObservableCollection<Ticket>(TicketManager.GetAll());
+            orders = new ObservableCollection<Order>(OrderManager.GetAll());
+
+
             ChangeVisibilityButtonCloseMenu = new RelayCommand(OnChangeVisibilityButtonCloseMenuExecuted, OnChangeVisibilityButtonCloseMenuExecute);
             ChangeVisibilityButtonOpenMenu = new RelayCommand(OnChangeVisibilityButtonOpenMenuExecuted, OnChangeVisibilityButtonOpenMenuExecute);
 
@@ -102,6 +146,9 @@ namespace Deonis.ViewModels
 
 
             this.UserManager = UserManager;
+            this.EmployeeManager = EmployeeManager;
+            this.TicketManager = TicketManager;
+            this.OrderManager = OrderManager;
         }
 
         private bool OnChangeVisibilityButtonCloseMenuExecute() => true;

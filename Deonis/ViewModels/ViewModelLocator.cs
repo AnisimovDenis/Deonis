@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight.Ioc;
 using CommonServiceLocator;
 using Deonis_lib.Services.Interfaces;
 using Deonis_lib.Services;
+using Deonis_lib.Services.InMemory;
 
 namespace Deonis.ViewModels
 {
@@ -24,6 +25,12 @@ namespace Deonis.ViewModels
             service.Register<AdminWindowViewModel>();
             service.Register<IUserManager, UserManager>();
             service.Register<IUserStore, UserStoreInMemory>();
+            service.Register<IEmployeeManager, EmployeeManager>();
+            service.Register<IEmployeeStore, EmployeeStoreInMemory>();
+            service.Register<IOrderManager, OrderManager>();
+            service.Register<IOrderStore, OrderStoreInMemory>();
+            service.Register<ITicketManager, TicketManager>();
+            service.Register<ITicketStore, TicketStoreInMemory>();
         }
 
         public AdminWindowViewModel AdminWindowModel => ServiceLocator.Current.GetInstance<AdminWindowViewModel>();

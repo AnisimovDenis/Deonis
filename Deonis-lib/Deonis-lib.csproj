@@ -57,10 +57,23 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Services\EmployeeManager.cs" />
     <Compile Include="Services\InMemory\DataStoreInMemory.cs" />
+    <Compile Include="Services\InMemory\EmployeeStoreInMemory.cs" />
+    <Compile Include="Services\InMemory\OrderStoreInMemory.cs" />
+    <Compile Include="Services\InMemory\TicketStoreInMemory.cs" />
     <Compile Include="Services\Interfaces\IDataStore.cs" />
+    <Compile Include="Services\Interfaces\IEmployeeManager.cs" />
+    <Compile Include="Services\Interfaces\IEmployeeStore.cs" />
+    <Compile Include="Services\Interfaces\IDataManager.cs" />
+    <Compile Include="Services\Interfaces\IOrderManager.cs" />
+    <Compile Include="Services\Interfaces\IOrderStore.cs" />
+    <Compile Include="Services\Interfaces\ITicketManager.cs" />
+    <Compile Include="Services\Interfaces\ITicketStore.cs" />
     <Compile Include="Services\Interfaces\IUserStore.cs" />
     <Compile Include="Services\Interfaces\IUserManager.cs" />
+    <Compile Include="Services\OrderManager.cs" />
+    <Compile Include="Services\TicketManager.cs" />
     <Compile Include="Services\UserManager.cs" />
     <Compile Include="Services\InMemory\UserStoreInMemory.cs" />
     <Compile Include="TestData\Data.cs" />

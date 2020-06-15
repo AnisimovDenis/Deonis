@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Deonis.Windows.Admin"
         xmlns:data="clr-namespace:Deonis.Data"
         xmlns:testdata="clr-namespace:Deonis_lib.TestData;assembly=Deonis-lib"
+        xmlns:view="clr-namespace:Deonis.Views.AdminViews"
         mc:Ignorable="d"
         Title="Администратор" 
         Height="750" Width="1250"
@@ -37,20 +38,6 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="75"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
-        <Storyboard x:Key="OpenButtonMenu">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)"
-                                           Storyboard.TargetName="GridButtonMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="100"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="170"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="CloseButtonMenu">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)"
-                                           Storyboard.TargetName="GridButtonMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="170"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="100"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
     </Window.Resources>
     <Window.Triggers>
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btnOpenMenu">
@@ -58,12 +45,6 @@
         </EventTrigger>
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btnCloseMenu">
             <BeginStoryboard Storyboard="{StaticResource CloseMenu}"/>
-        </EventTrigger>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btnOpenButtonMenu">
-            <BeginStoryboard Storyboard="{StaticResource OpenButtonMenu}"/>
-        </EventTrigger>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btnCloseButtonMenu">
-            <BeginStoryboard Storyboard="{StaticResource CloseButtonMenu}"/>
         </EventTrigger>
     </Window.Triggers>
     <Grid>
@@ -99,136 +80,10 @@
               Grid.Column="1"
               Grid.ColumnSpan="2">
 
-            <materialDesign:DialogHost CloseOnClickAway="True">
-                <materialDesign:DialogHost.DialogContent>
-                    <Grid>
-                        <StackPanel Width="250"
-                                    Visibility="{Binding VisibilityStackPanelAddUser}">
-                            <TextBlock Style="{DynamicResource MainTextBlock}"
-                                       Text="Добавление"
-                                       Margin=" 0 10 0 10"/>
-                            <TextBox Style="{DynamicResource TextBoxMain}"
-                                     materialDesign:HintAssist.Hint="Логин"/>
-                            <TextBox Style="{DynamicResource TextBoxMain}"
-                                     materialDesign:HintAssist.Hint="Пароль"/>
-                            <ComboBox materialDesign:HintAssist.Hint="Роль"
-                                      Style="{DynamicResource MainComboBox}"/>
-                            <Button Style="{DynamicResource MainButton}"
-                                    Content="Добавить"
-                                    Margin=" 0 10 0 10"/>
-                        </StackPanel>
-                        <StackPanel Width="250"
-                                    Visibility="{Binding VisibilityStackPanelEditUser}">
-                            <TextBlock Style="{DynamicResource MainTextBlock}"
-                                       Text="Редактирование"
-                                       Margin=" 0 10 0 10"/>
-                            <TextBox Style="{DynamicResource TextBoxMain}"
-                                     materialDesign:HintAssist.Hint="Логин"/>
-                            <TextBox Style="{DynamicResource TextBoxMain}"
-                                     materialDesign:HintAssist.Hint="Пароль"/>
-                            <ComboBox materialDesign:HintAssist.Hint="Роль"
-                                      Style="{DynamicResource MainComboBox}"/>
-                            <Button Style="{DynamicResource MainButton}"
-                                    Content="Изменить"
-                                    Margin=" 0 10 0 10"/>
-                        </StackPanel>
-                    </Grid>
-                </materialDesign:DialogHost.DialogContent>
-
-                <Grid>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
-
-                        <TextBlock Text="Пользователи системы"
-                                   Style="{DynamicResource HeadLineTextBlock}"
-                                   Margin="0 20"/>
-
-                        <Grid Grid.Row="1">
-                            <DataGrid Style="{DynamicResource DataGrid}"
-                                      AutoGenerateColumns="False"
-                                      IsReadOnly="True"
-                                      CanUserReorderColumns="False"
-                                      ItemsSource="{Binding UserViews, Source={StaticResource data}}">
-                                <DataGrid.ContextMenu>
-                                    <ContextMenu>
-                                        <MenuItem Header="Редактировать"
-                                                  Icon="{materialDesign:PackIcon Kind=Edit}"
-                                                  Command="{Binding OnOpenDilogHostEditUser}"/>
-                                        <Separator />
-                                        <MenuItem Header="Удалить"
-                                                  Icon="{materialDesign:PackIcon Kind=Trash}"/>
-                                    </ContextMenu>
-                                </DataGrid.ContextMenu>
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Логин"
-                                                        Width="100"
-                                                        MinWidth="150"
-                                                        Binding="{Binding Login}"/>
-                                    <DataGridTextColumn Header="Пароль"
-                                                        Width="100"
-                                                        MinWidth="150"
-                                                        Binding="{Binding Password}"/>
-                                    <DataGridTextColumn Header="Роль"
-                                                        Width="*"
-                                                        MinWidth="250"
-                                                        Binding="{Binding Role}"/>
-                                </DataGrid.Columns>
-                            </DataGrid>
-
-                            <TextBox Style="{DynamicResource TextBoxSearch}"
-                                     VerticalAlignment="Top"
-                                     HorizontalAlignment="Right"
-                                     materialDesign:HintAssist.Hint="Поиск по логину"/>
-
-                            <Grid x:Name="GridButtonMenu"
-                                  Height="100"
-                                  VerticalAlignment="Bottom" Margin="0,0,0,-50">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition />
-                                    <RowDefinition />
-                                </Grid.RowDefinitions>
-                                <Rectangle Fill="{DynamicResource Gray}"
-                                           VerticalAlignment="Bottom"
-                                           Height="20"/>
-                                <Rectangle Fill="{DynamicResource Gray}"
-                                           Grid.Row="1"/>
-                                <Button x:Name="btnOpenButtonMenu"
-                                        Style="{DynamicResource MenuButtonBottom}"
-                                        Height="20"
-                                        VerticalAlignment="Bottom" 
-                                        Visibility="{Binding VisibilityButtonOpenMenuButton}" 
-                                        Command="{Binding ChangeVisibilityButtonOpenMenuButton}"
-                                        Content="Меню"/>
-
-                                <Button x:Name="btnCloseButtonMenu"
-                                        Style="{DynamicResource MenuButtonBottom}"
-                                        Height="20"
-                                        VerticalAlignment="Bottom"
-                                        Visibility="{Binding VisibilityButtonCloseMenuButton}"
-                                        Command="{Binding ChangeVisibilityButtonCloseMenuButton}"
-                                        Content="Меню"/>
-
-                                <UniformGrid Grid.Row="1"
-                                                 Rows="1"
-                                                 Columns="2"
-                                                 VerticalAlignment="Top">
-                                    <Button Content="Добавить пользователя"
-                                            Style="{DynamicResource MainButton}"
-                                            Width="225"
-                                            Command="{Binding OnOpenDilogHostAddUser}"/>
-
-                                    <Button Content="Excel"
-                                            Style="{DynamicResource MainButton}"
-                                            Width="225"/>
-                                </UniformGrid>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                </Grid>
-            </materialDesign:DialogHost>
+            <view:UserView Visibility="Collapsed"/>
+            <view:EmployeeView Visibility="Collapsed"/>
+            <view:TicketView Visibility="Collapsed"/>
+            <view:OrderView />
         </Grid>
 
         <Grid x:Name="GridMenu"

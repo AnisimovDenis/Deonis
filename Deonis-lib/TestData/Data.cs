@@ -14,13 +14,13 @@ namespace Deonis_lib.TestData
         public static List<Employee> employees { get; } = new List<Employee>()
         {
             new Employee { Id = 1, LastName = "User1", FirstName = "User1", MiddleName = "User1",
-                Login = "User1", Email = "user1@mail.ru", PhoneNubmer = "+7(777)777-77-77", Address = "User1 address" },
+                Login = "User1", Email = "user1@mail.ru", PhoneNumber = "+7(777)777-77-77" },
 
             new Employee { Id = 2, LastName = "User2", FirstName = "User2", MiddleName = "User2",
-                Login = "User2", Email = "user2@mail.ru", PhoneNubmer = "+7(777)777-77-76", Address = "User2 address" },
+                Login = "User2", Email = "user2@mail.ru", PhoneNumber = "+7(777)777-77-76"},
 
             new Employee { Id = 3, LastName = "User3", FirstName = "User3", MiddleName = "User3",
-                Login = "User3", Email = "user3@mail.ru", PhoneNubmer = "+7(777)777-77-75", Address = "User3 address" }
+                Login = "User3", Email = "user3@mail.ru", PhoneNumber = "+7(777)777-77-75"}
         };
 
         public static List<Order> orders { get; } = new List<Order>()

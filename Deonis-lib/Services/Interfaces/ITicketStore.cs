@@ -7,5 +7,5 @@ using System.Threading.Tasks;
 
 namespace Deonis_lib.Services.Interfaces
 {
-    public interface IUserManager : IDataManager<User> { }
+    public interface ITicketStore : IDataStore<Ticket> { }
 }
