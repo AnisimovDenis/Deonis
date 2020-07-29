@@ -77,8 +77,8 @@
               Grid.ColumnSpan="2">
 
             <view:UserView Visibility="Collapsed"/>
-            <view:EmployeeView Visibility="Collapsed"/>
-            <view:TicketView />
+            <view:EmployeeView />
+            <view:TicketView Visibility="Collapsed"/>
             <view:OrderView Visibility="Collapsed"/>
         </Grid>
 
