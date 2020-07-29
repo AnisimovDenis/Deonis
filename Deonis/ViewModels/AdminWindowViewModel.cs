@@ -152,6 +152,14 @@ namespace Deonis.ViewModels
             set => Set(ref selectedEmployee, value);
         }
 
+        private Order selectedOrder;
+
+        public Order SelectedOrder
+        {
+            get => selectedOrder;
+            set => Set(ref selectedOrder, value);
+        }
+
         public AdminWindowViewModel(IUserManager UserManager, IEmployeeManager EmployeeManager, ITicketManager TicketManager, IOrderManager OrderManager)
         {
             users = new ObservableCollection<User>(UserManager.GetAll());
