@@ -133,11 +133,15 @@ namespace Deonis.ViewModels
         public User SelectedUser
         {
             get => selectedUser;
-            set 
-            { 
-                Set(ref selectedUser, value);
-                Debug.WriteLine("Проверка");
-            }
+            set => Set(ref selectedUser, value);
+        }
+
+        private Ticket selectedTicket;
+
+        public Ticket SelectedTicket
+        {
+            get => selectedTicket;
+            set => Set(ref selectedTicket, value);
         }
 
         public AdminWindowViewModel(IUserManager UserManager, IEmployeeManager EmployeeManager, ITicketManager TicketManager, IOrderManager OrderManager)

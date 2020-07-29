@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:Deonis.Views.AdminViews"
              mc:Ignorable="d"    
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:validation="clr-namespace:Deonis.Infrastructure.ValidationRules"
              DataContext="{Binding AdminWindowModel, Source={StaticResource Locator}}"
              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
              TextElement.FontWeight="Regular"
@@ -52,11 +53,19 @@
                                    Text="Добавление"
                                    Margin=" 0 10 0 10"/>
                         <TextBox Style="{DynamicResource TextBoxMain}"
-                                 materialDesign:HintAssist.Hint="Логин"/>
+                                 materialDesign:HintAssist.Hint="Наименование"/>
                         <TextBox Style="{DynamicResource TextBoxMain}"
-                                 materialDesign:HintAssist.Hint="Пароль"/>
-                        <ComboBox materialDesign:HintAssist.Hint="Роль"
+                                 materialDesign:HintAssist.Hint="Артикл">
+
+                        </TextBox>
+                        <ComboBox materialDesign:HintAssist.Hint="Тип билета"
                                   Style="{DynamicResource MainComboBox}"/>
+                        <ComboBox materialDesign:HintAssist.Hint="Тип транспорта"
+                                  Style="{DynamicResource MainComboBox}"/>
+                        <TextBox Style="{DynamicResource TextBoxMain}"
+                                 materialDesign:HintAssist.Hint="Цена за поездку">
+
+                        </TextBox>
                         <Button Style="{DynamicResource MainButton}"
                                 Content="Добавить"
                                 Margin=" 0 10 0 10"/>
@@ -67,11 +76,51 @@
                                    Text="Редактирование"
                                    Margin=" 0 10 0 10"/>
                         <TextBox Style="{DynamicResource TextBoxMain}"
-                                 materialDesign:HintAssist.Hint="Логин"/>
+                                 materialDesign:HintAssist.Hint="Наименование">
+                            <TextBox.Text>
+                                <Binding Path="SelectedTicket.Name" NotifyOnValidationError="True">
+                                    <Binding.ValidationRules>
+                                        <validation:RegExValidation Pattern="\w{3,40}"
+                                                                    ErrorMessage="Ошибка"/>
+                                        <ExceptionValidationRule />
+                                        <DataErrorValidationRule />
+                                        <NotifyDataErrorValidationRule />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
                         <TextBox Style="{DynamicResource TextBoxMain}"
-                                 materialDesign:HintAssist.Hint="Пароль"/>
-                        <ComboBox materialDesign:HintAssist.Hint="Роль"
+                                 materialDesign:HintAssist.Hint="Артикл">
+                            <TextBox.Text>
+                                <Binding Path="SelectedTicket.Article" NotifyOnValidationError="True">
+                                    <Binding.ValidationRules>
+                                        <validation:RegExValidation Pattern="\w{3,40}"
+                                                                    ErrorMessage="Ошибка"/>
+                                        <ExceptionValidationRule />
+                                        <DataErrorValidationRule />
+                                        <NotifyDataErrorValidationRule />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <ComboBox materialDesign:HintAssist.Hint="Тип билета"
                                   Style="{DynamicResource MainComboBox}"/>
+                        <ComboBox materialDesign:HintAssist.Hint="Тип транспорта"
+                                  Style="{DynamicResource MainComboBox}"/>
+                        <TextBox Style="{DynamicResource TextBoxMain}"
+                                 materialDesign:HintAssist.Hint="Цена за поездку">
+                            <TextBox.Text>
+                                <Binding Path="SelectedTicket.PricePerTrip" NotifyOnValidationError="True">
+                                    <Binding.ValidationRules>
+                                        <validation:RegExValidation Pattern="\d{5,40}"
+                                                                    ErrorMessage="Ошибка"/>
+                                        <ExceptionValidationRule />
+                                        <DataErrorValidationRule />
+                                        <NotifyDataErrorValidationRule />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
                         <Button Style="{DynamicResource MainButton}"
                                 Content="Изменить"
                                 Margin=" 0 10 0 10"/>
@@ -95,7 +144,8 @@
                                   AutoGenerateColumns="False"
                                   IsReadOnly="True"
                                   CanUserReorderColumns="False"
-                                  ItemsSource="{Binding Tickets}">
+                                  ItemsSource="{Binding Tickets}"
+                                  SelectedItem="{Binding SelectedTicket}">
                             <DataGrid.ContextMenu>
                                 <ContextMenu>
                                     <MenuItem Header="Редактировать"
