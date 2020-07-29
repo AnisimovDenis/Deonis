@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace Deonis.Infrastructure.Infrastructure
+namespace Deonis.Infrastructure.ValidationRules
 {
     public class RegExValidation : ValidationRule
     {

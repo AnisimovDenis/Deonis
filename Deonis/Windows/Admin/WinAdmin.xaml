@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Deonis.Windows.Admin"
-        xmlns:data="clr-namespace:Deonis.Data"
         xmlns:testdata="clr-namespace:Deonis_lib.TestData;assembly=Deonis-lib"
         xmlns:view="clr-namespace:Deonis.Views.AdminViews"
         mc:Ignorable="d"
@@ -48,9 +47,6 @@
         </EventTrigger>
     </Window.Triggers>
     <Grid>
-        <Grid.Resources>
-            <data:DataClasses x:Key="data"/>
-        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
             <RowDefinition />
@@ -80,10 +76,10 @@
               Grid.Column="1"
               Grid.ColumnSpan="2">
 
-            <view:UserView Visibility="Collapsed"/>
+            <view:UserView />
             <view:EmployeeView Visibility="Collapsed"/>
             <view:TicketView Visibility="Collapsed"/>
-            <view:OrderView />
+            <view:OrderView Visibility="Collapsed"/>
         </Grid>
 
         <Grid x:Name="GridMenu"

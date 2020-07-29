@@ -7,6 +7,7 @@ using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -125,6 +126,18 @@ namespace Deonis.ViewModels
         {
             get => orders;
             private set => Set(ref orders, value);
+        }
+
+        private User selectedUser;
+
+        public User SelectedUser
+        {
+            get => selectedUser;
+            set 
+            { 
+                Set(ref selectedUser, value);
+                Debug.WriteLine("Проверка");
+            }
         }
 
         public AdminWindowViewModel(IUserManager UserManager, IEmployeeManager EmployeeManager, ITicketManager TicketManager, IOrderManager OrderManager)
