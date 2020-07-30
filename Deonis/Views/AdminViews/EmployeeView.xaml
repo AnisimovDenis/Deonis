@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:Deonis.Views.AdminViews"
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:validation="clr-namespace:Deonis.Infrastructure.ValidationRules"
              DataContext="{Binding AdminWindowModel, Source={StaticResource Locator}}"
              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
              TextElement.FontWeight="Regular"
@@ -52,11 +53,17 @@
                                        Text="Добавление"
                                        Margin=" 0 10 0 10"/>
                         <TextBox Style="{DynamicResource TextBoxMain}"
-                                     materialDesign:HintAssist.Hint="Логин"/>
+                                     materialDesign:HintAssist.Hint="Фамилия"/>
                         <TextBox Style="{DynamicResource TextBoxMain}"
-                                     materialDesign:HintAssist.Hint="Пароль"/>
-                        <ComboBox materialDesign:HintAssist.Hint="Роль"
+                                     materialDesign:HintAssist.Hint="Имя"/>
+                        <TextBox Style="{DynamicResource TextBoxMain}"
+                                     materialDesign:HintAssist.Hint="Отчество"/>
+                        <ComboBox materialDesign:HintAssist.Hint="Логин пользователя"
                                       Style="{DynamicResource MainComboBox}"/>
+                        <TextBox Style="{DynamicResource TextBoxMain}"
+                                     materialDesign:HintAssist.Hint="Почта"/>
+                        <TextBox Style="{DynamicResource TextBoxMain}"
+                                     materialDesign:HintAssist.Hint="Телефон"/>
                         <Button Style="{DynamicResource MainButton}"
                                     Content="Добавить"
                                     Margin=" 0 10 0 10"/>
@@ -67,11 +74,77 @@
                                        Text="Редактирование"
                                        Margin=" 0 10 0 10"/>
                         <TextBox Style="{DynamicResource TextBoxMain}"
-                                     materialDesign:HintAssist.Hint="Логин"/>
+                                     materialDesign:HintAssist.Hint="Фамилия">
+                            <TextBox.Text>
+                                <Binding Path="SelectedEmployee.LastName" NotifyOnValidationError="True">
+                                    <Binding.ValidationRules>
+                                        <validation:RegExValidation Pattern="\w{3,40}"
+                                                                    ErrorMessage="Ошибка"/>
+                                        <ExceptionValidationRule />
+                                        <DataErrorValidationRule />
+                                        <NotifyDataErrorValidationRule />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
                         <TextBox Style="{DynamicResource TextBoxMain}"
-                                     materialDesign:HintAssist.Hint="Пароль"/>
-                        <ComboBox materialDesign:HintAssist.Hint="Роль"
+                                     materialDesign:HintAssist.Hint="Имя">
+                            <TextBox.Text>
+                                <Binding Path="SelectedEmployee.FirstName" NotifyOnValidationError="True">
+                                    <Binding.ValidationRules>
+                                        <validation:RegExValidation Pattern="\w{3,40}"
+                                                                    ErrorMessage="Ошибка"/>
+                                        <ExceptionValidationRule />
+                                        <DataErrorValidationRule />
+                                        <NotifyDataErrorValidationRule />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <TextBox Style="{DynamicResource TextBoxMain}"
+                                     materialDesign:HintAssist.Hint="Отчество">
+                            <TextBox.Text>
+                                <Binding Path="SelectedEmployee.MiddleName" NotifyOnValidationError="True">
+                                    <Binding.ValidationRules>
+                                        <validation:RegExValidation Pattern="\w{3,40}"
+                                                                    ErrorMessage="Ошибка"/>
+                                        <ExceptionValidationRule />
+                                        <DataErrorValidationRule />
+                                        <NotifyDataErrorValidationRule />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <ComboBox materialDesign:HintAssist.Hint="Логин пользователя"
                                       Style="{DynamicResource MainComboBox}"/>
+                        <TextBox Style="{DynamicResource TextBoxMain}"
+                                     materialDesign:HintAssist.Hint="Почта">
+                            <TextBox.Text>
+                                <Binding Path="SelectedEmployee.Email" NotifyOnValidationError="True">
+                                    <Binding.ValidationRules>
+                                        <validation:RegExValidation Pattern="\A[^@]+@([^@\.]+\.)+[^@\.]+\z"
+                                                                    ErrorMessage="Ошибка"/>
+                                        <ExceptionValidationRule />
+                                        <DataErrorValidationRule />
+                                        <NotifyDataErrorValidationRule />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <TextBox Style="{DynamicResource TextBoxMain}"
+                                     materialDesign:HintAssist.Hint="Телефон">
+                            <TextBox.Text>
+                                <Binding Path="SelectedEmployee.PhoneNumber" NotifyOnValidationError="True">
+                                    <Binding.ValidationRules>
+                                        <validation:RegExValidation Pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$"
+                                                                    ErrorMessage="Ошибка"/>
+                                        <ExceptionValidationRule />
+                                        <DataErrorValidationRule />
+                                        <NotifyDataErrorValidationRule />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
                         <Button Style="{DynamicResource MainButton}"
                                     Content="Изменить"
                                     Margin=" 0 10 0 10"/>
@@ -95,7 +168,8 @@
                                   AutoGenerateColumns="False"
                                   IsReadOnly="True"
                                   CanUserReorderColumns="False"
-                                  ItemsSource="{Binding Employees}">
+                                  ItemsSource="{Binding Employees}"
+                                  SelectedItem="{Binding SelectedEmployee}">
                             <DataGrid.ContextMenu>
                                 <ContextMenu>
                                     <MenuItem Header="Редактировать"
