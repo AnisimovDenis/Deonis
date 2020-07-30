@@ -194,20 +194,18 @@
                             <Rectangle Fill="{DynamicResource Gray}"
                                            Grid.Row="1"/>
                             <Button x:Name="btnOpenButtonMenu"
-                                        Style="{DynamicResource MenuButtonBottom}"
-                                        Height="20"
-                                        VerticalAlignment="Bottom" 
-                                        Visibility="{Binding VisibilityButtonOpenMenuButton}" 
-                                        Command="{Binding ChangeVisibilityButtonOpenMenuButton}"
-                                        Content="Меню"/>
+                                    Style="{DynamicResource MenuButtonBottom}"
+                                    Height="20"
+                                    VerticalAlignment="Bottom" 
+                                    Visibility="{Binding VisibilityButtonOpenMenuButton}" 
+                                    Command="{Binding ChangeVisibilityButtonOpenMenuButton}"/>
 
                             <Button x:Name="btnCloseButtonMenu"
                                     Style="{DynamicResource MenuButtonBottom}"
                                     Height="20"
                                     VerticalAlignment="Bottom"
                                     Visibility="{Binding VisibilityButtonCloseMenuButton}"
-                                    Command="{Binding ChangeVisibilityButtonCloseMenuButton}"
-                                    Content="Меню"/>
+                                    Command="{Binding ChangeVisibilityButtonCloseMenuButton}"/>
 
                             <UniformGrid Grid.Row="1"
                                          Rows="1"
