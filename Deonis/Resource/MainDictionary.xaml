@@ -50,7 +50,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border>
+                    <Border Background="{StaticResource Gray}"
+                            BorderBrush="{StaticResource Gray}">
                         <ContentControl VerticalAlignment="Center" HorizontalAlignment="Center"
                                         Content="Меню"/>
                     </Border>
